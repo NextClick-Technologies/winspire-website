@@ -13,9 +13,9 @@ export default function AboutSection() {
         <div className="relative order-2 mt-10 flex items-center justify-center lg:order-1 lg:mt-0 w-full h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[600px] lg:h-full">
           <div className="relative flex flex-1 w-full h-full max-w-none aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto">
             {/* Soft shapes behind the photo */}
-            {/* <div className="absolute -left-12 -top-10 h-24 w-24 rounded-full bg-blue-50" aria-hidden="true" />
+            <div className="absolute -left-12 -top-10 h-24 w-24 rounded-full bg-blue-50" aria-hidden="true" />
             <div className="absolute -right-8 bottom-10 h-20 w-20 rotate-45 rounded-lg bg-amber-400" aria-hidden="true" />
-            <div className="absolute -left-6 bottom-0 h-0 w-0 border-l-[36px] border-l-blue-900 border-t-[24px] border-t-transparent border-b-[24px] border-b-transparent rounded-sm" aria-hidden="true" /> */}
+            <div className="absolute -left-6 bottom-0 h-0 w-0 border-l-[36px] border-l-blue-900 border-t-[24px] border-t-transparent border-b-[24px] border-b-transparent rounded-sm" aria-hidden="true" />
             {/* Main person image */}
             {/* <div
               className="w-0 h-0
