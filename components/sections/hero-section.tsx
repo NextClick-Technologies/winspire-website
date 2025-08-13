@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import { Plus } from 'lucide-react'
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 
 export default function Component() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-amber-50">
+    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-black to-amber-50">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 lg:px-12">
         <div className="flex items-center space-x-2">
@@ -13,16 +13,16 @@ export default function Component() {
         </div>
 
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-gray-700 hover:text-blue-900 font-medium">
+          <a href="/" className="text-gray-700 hover:text-blue-900 font-medium">
             Home
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-900 font-medium">
+          <a href="/about" className="text-gray-700 hover:text-blue-900 font-medium">
             About Us
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-900 font-medium">
+          <a href="/services" className="text-gray-700 hover:text-blue-900 font-medium">
             Services
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-900 font-medium">
+          <a href="/contact" className="text-gray-700 hover:text-blue-900 font-medium">
             Contact
           </a>
         </nav>
@@ -39,8 +39,8 @@ export default function Component() {
       </header>
 
       {/* Hero Section */}
-      <main className="px-6  border-4 border-amber-400">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="px-6 h-[85dvh] border-4 border-amber-400">
+        <div className="max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 outline outline-red-500">
             <div className="inline-flex items-center rounded-full bg-white/80 backdrop-blur px-4 py-2 text-xs font-medium uppercase tracking-wider text-gray-700 shadow-sm ring-1 ring-gray-200">
@@ -48,15 +48,16 @@ export default function Component() {
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-slate-900">
-              Empowering <span className="text-amber-500">NDIS</span>
+              Empowering <span className="text-[#F5C71D]">NDIS</span>
               <span className="block">
-                <span className="text-amber-500">Providers</span> Through
+                <span className="text-[#F5C71D]">Providers</span> Through
               </span>
               <span className="block">Expert Guidance</span>
             </h1>
 
             <p className="text-lg text-gray-600 max-w-xl">
-              Holistic support services for NDIS participants and providers. Building capacity through compliance, operational excellence, and person-centred care.
+              Holistic support services for NDIS participants and providers. Building capacity
+              through compliance, operational excellence, and person-centred care.
             </p>
 
             <div className="flex items-center space-x-6 text-sm text-gray-600">
@@ -71,58 +72,65 @@ export default function Component() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full text-base">
-                <span className="mr-2">Discover More</span>
-                <Plus className="h-4 w-4" />
-              </Button>
               <Button
-                variant="outline"
-                className="border-blue-900 text-blue-900 hover:bg-blue-50 px-8 py-3 rounded-full text-lg bg-transparent"
+                variant="default"
+                className="bg-transparent hover:bg-blue-800 hover:text-white text-black outline outline-[#001B6A] !px-8 py-6 rounded-full text-base"
               >
-                Our Services
+                <span className="">Discover More</span>
+                <Plus className="h-4 w-4" />
               </Button>
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="relative lg:px-12 py-12 lg:py-20 outline-4 outline-fuchsia-500">
+          <div className="relative h-full lg:px-12 py-12 lg:py-20 outline-4 outline-fuchsia-500">
             {/* Decorative Elements */}
             <div className="absolute -top-4 -left-4 w-16 h-16 grid grid-cols-4 gap-1">
               {Array.from({ length: 16 }).map((_, i) => (
-                <div key={i} className="w-2 h-2 bg-blue-200 rounded-full"></div>
+                <div
+                  key={`decorative-dot-hero-${i}-${Math.floor(i / 4)}-${i % 4}`}
+                  className="w-1.25 aspect-square bg-blue-500 rounded-full"
+                ></div>
               ))}
             </div>
 
-            <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-amber-400 rounded-lg transform rotate-12"></div>
-
             {/* Main Image Container */}
-            <div className="relative bg-blue-900 max-w-5/6 rounded-t-full p-4 transform rotate-0 outline-4 outline-yellow-600">
-              <div className="bg-white rounded-t-full overflow-hidden outline-4 outline-red-600">
+            <div className="relative max-w-5/6 mx-auto h-full rounded-t-full p-4 transform rotate-0 outline-4 outline-[#001B6A]">
+              <div className="bg-transparent absolute inset-0 -z-5 rounded-t-full h-full translate-x-6 -translate-y-6 overflow-hidden outline outline-transparent">
                 <Image
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/hero_image.webp"
                   alt="Supportive NDIS consultation meeting inside an office"
                   width={500}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Small Chart Icon */}
-              <div className="absolute -bottom-4 -right-4 bg-blue-800 p-3 rounded-lg">
-                <div className="w-8 h-8 text-white">📊</div>
+              <div className="absolute bottom-0 right-0 bg-[#001B6A] p-3">
+                <Image
+                  src="/icons/hero_map_icon.svg"
+                  alt="Decorative dot"
+                  width={12}
+                  height={12}
+                  className="w-18 h-full"
+                />
+                <div className="absolute right-0 bottom-0 translate-x-11 translate-y-11 w-10 h-10 bg-[#F8BC26] transform rotate-0"></div>
               </div>
             </div>
 
             {/* Additional Decorative Dots */}
-            <div className="absolute top-1/2 -right-8 w-12 h-12 grid grid-cols-3 gap-1">
+            <div className="absolute top-1/2 -right-4 overflow-hidden w-12 h-12 grid grid-cols-3 gap-1">
               {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                <div
+                  key={`side-dot-hero-${i}-${Math.floor(i / 3)}-${i % 3}`}
+                  className="w-2 h-2 bg-blue-300 rounded-full"
+                ></div>
               ))}
             </div>
           </div>
-
         </div>
-      </main>
-    </div>
+      </section>
+    </section>
   )
 }

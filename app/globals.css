@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -117,7 +117,28 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    /* Disable default smooth scrolling since we're using Lenis */
+    scroll-behavior: auto;
+  }
+
   body {
     @apply bg-background text-foreground;
+    /* Ensure body takes full height for proper scrolling */
+    min-height: 100vh;
+  }
+
+  /* Ensure smooth scrolling elements */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
   }
 }

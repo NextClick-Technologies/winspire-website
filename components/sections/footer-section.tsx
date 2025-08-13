@@ -1,19 +1,19 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import Image from "next/image"
-import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react'
-import { useState } from "react"
+import { ArrowRight, Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export default function FooterSection() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState('')
 
   function onSubscribe(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // Demo only — replace with your submit handler or server action
     alert(`Thanks! We'll keep you posted at: ${email}`)
-    setEmail("")
+    setEmail('')
   }
 
   return (
@@ -42,7 +42,10 @@ export default function FooterSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-12 border-0 focus-visible:ring-0"
                   />
-                  <Button type="submit" className="h-12 rounded-none rounded-r-xl bg-blue-900 px-6 text-white hover:bg-blue-800">
+                  <Button
+                    type="submit"
+                    className="h-12 rounded-none rounded-r-xl bg-blue-900 px-6 text-white hover:bg-blue-800"
+                  >
                     Submit Now
                   </Button>
                 </div>
@@ -63,7 +66,8 @@ export default function FooterSection() {
                 <span className="text-white/90">WINSPIRE</span>
               </div>
               <p className="max-w-sm text-blue-100/80">
-                We pride ourselves on high‑quality service and continuous engagement through clear, regular communication.
+                We pride ourselves on high‑quality service and continuous engagement through clear,
+                regular communication.
               </p>
 
               <div className="mt-4 space-y-2 text-sm">
@@ -82,16 +86,40 @@ export default function FooterSection() {
               </div>
 
               <div className="mt-4 flex items-center gap-3">
-                <a href="#" aria-label="Facebook" className="rounded bg-white/10 p-2 hover:bg-white/20">
+                <a
+                  href="https://facebook.com"
+                  aria-label="Facebook"
+                  className="rounded bg-white/10 p-2 hover:bg-white/20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="Twitter" className="rounded bg-white/10 p-2 hover:bg-white/20">
+                <a
+                  href="https://twitter.com"
+                  aria-label="Twitter"
+                  className="rounded bg-white/10 p-2 hover:bg-white/20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Twitter className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="Instagram" className="rounded bg-white/10 p-2 hover:bg-white/20">
+                <a
+                  href="https://instagram.com"
+                  aria-label="Instagram"
+                  className="rounded bg-white/10 p-2 hover:bg-white/20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="rounded bg-white/10 p-2 hover:bg-white/20">
+                <a
+                  href="https://linkedin.com"
+                  aria-label="LinkedIn"
+                  className="rounded bg-white/10 p-2 hover:bg-white/20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Linkedin className="h-4 w-4" />
                 </a>
               </div>
@@ -102,17 +130,17 @@ export default function FooterSection() {
               <h4 className="mb-4 font-semibold text-white">Our services</h4>
               <ul className="space-y-3 text-sm text-blue-100/90">
                 {[
-                  "Operational planning and advice",
-                  "Compliance and Risk Analysis",
-                  "Internal and external incident report reviews",
-                  "End year reporting and support planning",
-                  "NDIS audit preparation (Desktop)",
-                  "NDIS Certification audit (Stage 2)",
-                  "Follow‑up review (offsite)",
+                  'Operational planning and advice',
+                  'Compliance and Risk Analysis',
+                  'Internal and external incident report reviews',
+                  'End year reporting and support planning',
+                  'NDIS audit preparation (Desktop)',
+                  'NDIS Certification audit (Stage 2)',
+                  'Follow‑up review (offsite)',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <ArrowRight className="mt-0.5 h-4 w-4 text-amber-300" />
-                    <a href="#" className="hover:underline">{item}</a>
+                    <span className="hover:underline cursor-pointer">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -122,9 +150,14 @@ export default function FooterSection() {
             <div className="lg:col-span-2">
               <h4 className="mb-4 font-semibold text-white">Other</h4>
               <ul className="space-y-3 text-sm text-blue-100/90">
-                {["About", "Our Mission", "Resources", "FAQs", "Contact"].map((item) => (
+                {['About', 'Our Mission', 'Resources', 'FAQs', 'Contact'].map((item) => (
                   <li key={item}>
-                    <a href="#" className="hover:underline">{item}</a>
+                    <a
+                      href={`/${item.toLowerCase().replace(' ', '-')}`}
+                      className="hover:underline"
+                    >
+                      {item}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -135,7 +168,11 @@ export default function FooterSection() {
               <h4 className="mb-4 font-semibold text-white">Recent blog</h4>
               <div className="space-y-5">
                 {[1, 2].map((i) => (
-                  <a key={i} href="#" className="group flex gap-4 rounded-lg p-2 hover:bg-white/5">
+                  <a
+                    key={i}
+                    href={`/blog/post-${i}`}
+                    className="group flex gap-4 rounded-lg p-2 hover:bg-white/5"
+                  >
                     <div className="overflow-hidden rounded bg-white">
                       <Image
                         src="/placeholder.svg?height=60&width=80"
@@ -163,9 +200,15 @@ export default function FooterSection() {
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-blue-100/80 lg:flex-row lg:px-12">
             <div>© 2025 | All Rights Reserved</div>
             <div className="flex gap-6">
-              <a href="#" className="hover:underline">Terms & Conditions</a>
-              <a href="#" className="hover:underline">Privacy Policy</a>
-              <a href="#" className="hover:underline">Contact Us</a>
+              <a href="/terms" className="hover:underline">
+                Terms & Conditions
+              </a>
+              <a href="/privacy" className="hover:underline">
+                Privacy Policy
+              </a>
+              <a href="/contact" className="hover:underline">
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
