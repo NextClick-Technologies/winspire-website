@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-black outline-4 outline-blue-600">
+    <section className="relative overflow-hidden bg-transparent outline-0 outline-blue-600">
       <div
         className="pointer-events-none absolute -z-10 inset-y-0 right-0 w-1/2 bg-gradient-to-b from-amber-50/60 to-white"
         aria-hidden="true"
@@ -45,7 +45,7 @@ export default function AboutSection() {
                      border-l-[150px] border-l-red-500
                      mx-auto" // Center the triangle
         ></div> */}
-            <div className="relative w-full h-full p-2 sm:p-3 shadow-sm ring-0 ring-slate-200 outline outline-lime-400">
+            <div className="relative w-full h-full p-2 sm:p-3 shadow-none ring-0 ring-slate-200 outline-0 outline-lime-400">
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="490"

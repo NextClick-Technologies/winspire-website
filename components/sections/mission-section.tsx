@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function MissionSection() {
   return (
-    <section className="relative overflow-hidden bg-black/60">
+    <section className="relative overflow-hidden bg-amber/60">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:grid lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-20">
         {/* Left: Copy */}
         <div className="lg:col-span-7">

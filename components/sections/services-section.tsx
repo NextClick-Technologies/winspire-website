@@ -46,7 +46,7 @@ export default function ServicesSection() {
   return (
     <section
       aria-labelledby="services-heading"
-      className="relative bg-black outline outline-amber-500"
+      className="relative bg-transparent outline-0 outline-amber-500"
     >
       {/* Top copy */}
       <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:py-20">
@@ -79,7 +79,7 @@ export default function ServicesSection() {
         {/* Row 2: 3 cards, centered on large screens */}
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center">
           {bottomRow.map((s) => (
-            <div key={s.title} className="w-full outline outline-lime-600">
+            <div key={s.title} className="w-full outline-0 outline-lime-600">
               <ServiceCard item={s} />
             </div>
           ))}

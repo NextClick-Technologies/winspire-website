@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 export default function Component() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-black to-amber-50">
+    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-amber to-amber-50">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 lg:px-12">
         <div className="flex items-center space-x-2">
@@ -39,10 +39,10 @@ export default function Component() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 h-[85dvh] border-4 border-amber-400">
+      <section className="px-6 h-[85dvh] border-0 border-amber-400">
         <div className="max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 outline outline-red-500">
+          <div className="space-y-6 outline-0 outline-red-500">
             <div className="inline-flex items-center rounded-full bg-white/80 backdrop-blur px-4 py-2 text-xs font-medium uppercase tracking-wider text-gray-700 shadow-sm ring-1 ring-gray-200">
               NDIS CONSULTANCY EXPERTS
             </div>
@@ -83,7 +83,7 @@ export default function Component() {
           </div>
 
           {/* Right Image */}
-          <div className="relative h-full lg:px-12 py-12 lg:py-20 outline-4 outline-fuchsia-500">
+          <div className="relative h-full lg:px-12 py-12 lg:py-20 outline-0 outline-fuchsia-500">
             {/* Decorative Elements */}
             <div className="absolute -top-4 -left-4 w-16 h-16 grid grid-cols-4 gap-1">
               {Array.from({ length: 16 }).map((_, i) => (
