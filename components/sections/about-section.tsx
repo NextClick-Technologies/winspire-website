@@ -1,4 +1,4 @@
-import { BadgeCheck, Handshake, Target } from 'lucide-react'
+import { BadgeCheck } from 'lucide-react'
 import Image from 'next/image'
 
 export default function AboutSection() {
@@ -39,9 +39,7 @@ export default function AboutSection() {
               }}
             ></div>
             <div
-          className="w-0 h-0
-                     border-t-[100px] border-t-transparent
-                     border-b-[100px] border-b-transparent
+              className="border-b-[100px] border-b-transparent
                      border-l-[150px] border-l-red-500
                      mx-auto" // Center the triangle
         ></div> */}
