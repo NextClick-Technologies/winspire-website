@@ -26,10 +26,10 @@ export default function MissionSection() {
 
         {/* Right: Image Card */}
         <div className="mt-10 lg:col-span-5 lg:mt-0 z-30">
-          <div className="relative rounded-3xl bg-gradient-to-br from-amber-100 to-amber-50 p-2 shadow-sm ring-1 ring-amber-200">
-            <div className="rounded-2xl bg-white p-2">
+          <div className="relative rounded-3xl bg-gradient-to-b from-amber-200 to-[#F8F9FC] via-80% via-[#F8F9FC] pt-4 px-5 shadow-none ring-0 ring-amber-200">
+            <div className="rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=360&width=560"
+                src="/images/our-mission.webp"
                 alt="Team collaborating on NDIS operations and compliance"
                 width={560}
                 height={360}
