@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 export default function MissionSection() {
   return (
-    <section className="relative overflow-hidden bg-amber/60">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:grid lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-20">
+    <section className="relative overflow-hidden bbg-[#F8F9FC] z-0">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:grid lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-20">
         {/* Left: Copy */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 z-30">
           <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 shadow-sm ring-1 ring-slate-200">
             Our Mission
           </div>
@@ -25,7 +25,7 @@ export default function MissionSection() {
         </div>
 
         {/* Right: Image Card */}
-        <div className="mt-10 lg:col-span-5 lg:mt-0">
+        <div className="mt-10 lg:col-span-5 lg:mt-0 z-30">
           <div className="relative rounded-3xl bg-gradient-to-br from-amber-100 to-amber-50 p-2 shadow-sm ring-1 ring-amber-200">
             <div className="rounded-2xl bg-white p-2">
               <Image
@@ -48,7 +48,10 @@ export default function MissionSection() {
             </div>
           </div>
         </div>
+
       </div>
+      <div className='z-20 bg-[#F8F9FC]/80 absolute inset-0'/>
+      <Image src={'/icons/tron-legacy-image.svg'} alt='Tron Legacy Image' width={600} height={1200} style={{ objectFit: 'cover'}} className='absolute bottom-0 -right-20 z-10' />
     </section>
   )
 }

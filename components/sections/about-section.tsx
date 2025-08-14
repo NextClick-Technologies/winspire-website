@@ -1,5 +1,6 @@
 import { BadgeCheck } from 'lucide-react'
 import Image from 'next/image'
+import { Card, CardContent } from '@/components/ui/card'
 
 export default function AboutSection() {
   return (
@@ -13,9 +14,15 @@ export default function AboutSection() {
         <div className="relative order-2 mt-10 flex items-center justify-center lg:order-1 lg:mt-0 w-full h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[600px] lg:h-full">
           <div className="relative flex flex-1 w-full h-full max-w-none aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto">
             {/* Soft shapes behind the photo */}
-            <div className="absolute -left-12 -top-10 h-24 w-24 rounded-full bg-blue-50" aria-hidden="true" />
-            <div className="absolute -right-8 bottom-10 h-20 w-20 rotate-45 rounded-lg bg-amber-400" aria-hidden="true" />
-            <div className="absolute -left-6 bottom-0 h-0 w-0 border-l-[36px] border-l-blue-900 border-t-[24px] border-t-transparent border-b-[24px] border-b-transparent rounded-sm" aria-hidden="true" />
+            <div className="absolute right-4/8 top-0 h-24 w-24 rounded-full bg-blue-50" aria-hidden="true" />
+            <div className="absolute right-8 top-1/3 aspect-square w-20 z-20 rotate-0 rounded-lg " aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="112" height="128" viewBox="0 0 112 128" fill="none">
+  <path d="M112 119.817V7.69251C112 1.97519 105.809 -1.59757 100.856 1.25882L3.71474 57.3212C-1.23824 60.1821 -1.23824 67.3277 3.71474 70.1841L100.856 126.246C105.809 129.107 112 125.535 112 119.817Z" fill="#F8BC26"/>
+</svg>
+            </div>
+            <div className="absolute right-1/2 translate-x-1/4 translate-y-1/8 mx-auto bottom-0 z-20 w-32 aspect-square" aria-hidden="true">
+              <Image src='/icons/blue-triangle-icon.svg' width={96} height={109} alt='blue triangle' />
+            </div>
             {/* Main person image */}
             {/* <div
               className="w-0 h-0
@@ -103,28 +110,32 @@ export default function AboutSection() {
 
           {/* Vision and Mission */}
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border border-slate-200 p-5">
-              <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
-                <Image src='/icons/our-vision-icon.svg' width={40} height={40} style={{ objectFit: 'contain' }} alt="Bubble Background Icon" className='max-w-10 aspect-square' />
-              </div>
-              <h3 className="text-base font-semibold text-slate-900">Our Vision</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Enriching growth for service providers and service users through collaboration and
-                engagement of all stakeholders.
-              </p>
-            </div>
+            <Card className="border-0 shadow-none p-0 bg-transparent">
+              <CardContent className="p-5">
+                <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
+                  <Image src='/icons/our-vision-icon.svg' width={40} height={40} style={{ objectFit: 'contain' }} alt="Bubble Background Icon" className='max-w-10 aspect-square' />
+                </div>
+                <h3 className="text-base font-semibold text-slate-900">Our Vision</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Enriching growth for service providers and service users through collaboration and
+                  engagement of all stakeholders.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="rounded-xl border border-slate-200 p-5">
-              <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
-                <Image src='/icons/our-mission-icon.svg' width={40} height={40} style={{ objectFit: 'contain' }} alt="Bubble Background Icon" className='max-w-10 aspect-square' />
-              </div>
-              <h3 className="text-base font-semibold text-slate-900">Our Mission</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Partnering with individuals, service providers and other stakeholders to deliver
-                person‑centred and service‑centred services that promote practical, safe and
-                responsive services.
-              </p>
-            </div>
+            <Card className="border-0 shadow-none p-0 bg-transparent">
+              <CardContent className="p-5">
+                <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
+                  <Image src='/icons/our-mission-icon.svg' width={40} height={40} style={{ objectFit: 'contain' }} alt="Bubble Background Icon" className='max-w-10 aspect-square' />
+                </div>
+                <h3 className="text-base font-semibold text-slate-900">Our Mission</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Partnering with individuals, service providers and other stakeholders to deliver
+                  person‑centred and service‑centred services that promote practical, safe and
+                  responsive services.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Small trust row */}

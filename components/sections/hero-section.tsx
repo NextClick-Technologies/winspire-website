@@ -60,17 +60,6 @@ export default function Component() {
               through compliance, operational excellence, and person-centred care.
             </p>
 
-            <div className="flex items-center space-x-6 text-sm text-gray-600">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>2+ Years Trusted Experience</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Family-Owned & Personal</span>
-              </div>
-            </div>
-
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 variant="default"

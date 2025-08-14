@@ -8,6 +8,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import Image from 'next/image'
 
 type Service = {
   title: string
@@ -31,7 +32,7 @@ const bottomRow: Service[] = [
 function ServiceCard({ item }: { item: Service }) {
   const Icon = item.icon
   return (
-    <Card className="rounded-2xl border-slate-200 bg-white h-full shadow-sm transition hover:shadow-md">
+    <Card className="rounded-2xl border-slate-200 bg-white h-full shadow-lg transition hover:shadow-md">
       <CardContent className="flex flex-col items-center gap-4 p-6 text-center sm:p-8">
         <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-700">
           <Icon className="h-6 w-6" aria-hidden="true" />
@@ -46,7 +47,7 @@ export default function ServicesSection() {
   return (
     <section
       aria-labelledby="services-heading"
-      className="relative bg-transparent outline-0 outline-amber-500"
+      className="relative bg-transparent outline outline-amber-500"
     >
       {/* Top copy */}
       <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:py-20">
@@ -68,7 +69,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Grid */}
-      <div className="mx-auto max-w-7xl px-6 pb-20 lg:px-12">
+      <div className="relative mx-auto max-w-7xl px-6 pb-20 lg:px-12 z-10">
         {/* Row 1: 4 cards */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {topRow.map((s) => (
@@ -77,7 +78,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Row 2: 3 cards, centered on large screens */}
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center">
+        <div className="mt-6 lg:max-w-10/12 mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center">
           {bottomRow.map((s) => (
             <div key={s.title} className="w-full outline-0 outline-lime-600">
               <ServiceCard item={s} />
@@ -87,7 +88,16 @@ export default function ServicesSection() {
       </div>
 
       {/* Subtle backdrop divider */}
-      {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-slate-50" aria-hidden="true" /> */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 translate-y-1/6 outline-0 outline-fuchsia-600 bg-slate-50 z-0" aria-hidden="true">
+      <Image
+        src="/icons/light-bulb-icon.svg"
+        alt="Description of image"
+        width={84}
+        height={85}
+        style={{ objectFit: 'contain' }}
+        className='absolute -top-1/12 left-6 z-30'
+      />
+      </div>
     </section>
   )
 }
