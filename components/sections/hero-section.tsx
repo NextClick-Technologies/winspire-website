@@ -84,8 +84,8 @@ export default function Component() {
             </div>
 
             {/* Main Image Container */}
-            <div className="relative max-w-5/6 mx-auto h-full rounded-t-full p-4 transform rotate-0 outline-4 outline-[#001B6A]">
-              <div className="bg-transparent absolute inset-0 -z-5 rounded-t-full h-full translate-x-6 -translate-y-6 overflow-hidden outline outline-transparent">
+            <div className="relative max-w-5/6 mx-auto h-full rounded-t-full p-4 transform z-0 rotate-0 outline-4 outline-[#001B6A]">
+              <div className="bg-transparent absolute inset-0 -z-10 rounded-t-full h-full translate-x-5 -translate-y-5 overflow-hidden outline outline-transparent">
                 <Image
                   src="/images/hero_image.webp"
                   alt="Supportive NDIS consultation meeting inside an office"
@@ -117,7 +117,9 @@ export default function Component() {
                 ></div>
               ))}
             </div>
+
           </div>
+
         </div>
       </section>
     </section>
