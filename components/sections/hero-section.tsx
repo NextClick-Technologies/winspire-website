@@ -1,48 +1,17 @@
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import BackgroundEffects from '../shared/background-effects'
 
 export default function Component() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-amber to-amber-50">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 lg:px-12">
-        <div className="flex items-center space-x-2">
-          <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg">WC</div>
-          <span className="text-blue-900 font-semibold text-sm">WINSPIRE</span>
-        </div>
-
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="/" className="text-gray-700 hover:text-blue-900 font-medium">
-            Home
-          </a>
-          <a href="/about" className="text-gray-700 hover:text-blue-900 font-medium">
-            About Us
-          </a>
-          <a href="/services" className="text-gray-700 hover:text-blue-900 font-medium">
-            Services
-          </a>
-          <a href="/contact" className="text-gray-700 hover:text-blue-900 font-medium">
-            Contact
-          </a>
-        </nav>
-
-        <div className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm">
-          <div className="flex items-center space-x-2">
-            <span>💬</span>
-            <div>
-              <div className="text-xs">Need help?</div>
-              <div className="font-medium">admin@email.com</div>
-            </div>
-          </div>
-        </div>
-      </header>
+  <section className="relative min-h-screen overflow-hidden z-0" style={{ background: '#001B6A0A' }}>
 
       {/* Hero Section */}
-      <section className="px-6 h-[85dvh] border-0 border-amber-400">
-        <div className="max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative z-20 px-6 h-[85dvh] border-2 border-amber-400">
+        <div className="max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-12 items-center z-10 outline-4 outline-lime-500">
           {/* Left Content */}
-          <div className="space-y-6 outline-0 outline-red-500">
+          <div className="space-y-6 outline-4 outline-red-500">
             <div className="inline-flex items-center rounded-full bg-white/80 backdrop-blur px-4 py-2 text-xs font-medium uppercase tracking-wider text-gray-700 shadow-sm ring-1 ring-gray-200">
               NDIS CONSULTANCY EXPERTS
             </div>
@@ -63,7 +32,7 @@ export default function Component() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 variant="default"
-                className="bg-transparent hover:bg-blue-800 hover:text-white text-black outline outline-[#001B6A] !px-8 py-6 rounded-full text-base"
+                className="bg-transparent hover:bg-primary hover:text-white text-black outline outline-primary !px-8 py-6 rounded-full text-base cursor-pointer"
               >
                 <span className="">Discover More</span>
                 <Plus className="h-4 w-4" />
@@ -84,7 +53,7 @@ export default function Component() {
             </div>
 
             {/* Main Image Container */}
-            <div className="relative max-w-5/6 mx-auto h-full rounded-t-full p-4 transform z-0 rotate-0 outline-4 outline-[#001B6A]">
+            <div className="relative max-w-5/6 mx-auto h-full rounded-t-full shadow-2xl p-4 transform z-0 rotate-0 outline-4 outline-[#001B6A]">
               <div className="bg-transparent absolute inset-0 -z-10 rounded-t-full h-full translate-x-5 -translate-y-5 overflow-hidden outline outline-transparent">
                 <Image
                   src="/images/hero_image.webp"
@@ -122,6 +91,8 @@ export default function Component() {
 
         </div>
       </section>
+      <BackgroundEffects top='0%' left='1%' size='500' zIndex={5} className='-translate-x-2/5 -translate-y-2/5'/>
+      <div className='absolute inset-0 z-10 backdrop-blur-md border-6 border-fuchsia-700' />
     </section>
   )
 }

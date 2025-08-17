@@ -34,7 +34,7 @@ function ServiceCard({ item }: { item: Service }) {
   return (
     <Card className="rounded-2xl border-slate-200 bg-white h-full shadow-lg transition hover:shadow-md">
       <CardContent className="flex flex-col items-center gap-4 p-6 text-center sm:p-8">
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-700">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-primary">
           <Icon className="h-6 w-6" aria-hidden="true" />
         </span>
         <h3 className="text-base font-semibold leading-snug text-slate-900">{item.title}</h3>

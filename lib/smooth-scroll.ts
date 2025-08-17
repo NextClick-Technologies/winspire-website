@@ -1,16 +1,16 @@
-import Lenis from 'lenis'
+import Lenis from "lenis"
 
 // Global Lenis instance
 let lenis: Lenis | null = null
 
 export const initSmoothScroll = () => {
-  if (typeof window === 'undefined') return null
+  if (typeof window === "undefined") return null
 
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
+    orientation: "vertical",
+    gestureOrientation: "vertical",
     smoothWheel: true,
     wheelMultiplier: 1,
     touchMultiplier: 2,
@@ -22,13 +22,10 @@ export const initSmoothScroll = () => {
 
 export const getSmoothScrollInstance = () => lenis
 
-export const scrollTo = (
-  target: string | number,
-  options?: { offset?: number; duration?: number }
-) => {
+export const scrollTo = (target: string | number, options?: { offset?: number; duration?: number }) => {
   if (!lenis) return
 
-  if (typeof target === 'string') {
+  if (typeof target === "string") {
     const element = document.querySelector(target) as HTMLElement
     if (element) {
       lenis.scrollTo(element, {
