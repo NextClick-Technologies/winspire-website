@@ -15,7 +15,7 @@ interface BackgroundEffectsProps {
 export default function BackgroundEffects({
   size = '800',
   gradient = 'radial-gradient(50% 50% at 50% 50%, rgba(248, 188, 38, 0.5) 0%, rgba(255, 255, 255, 0) 100%)',
-  opacity = 1,
+  opacity = 10,
   zIndex = 0,
   className = '',
   top,

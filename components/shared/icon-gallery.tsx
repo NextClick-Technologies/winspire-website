@@ -7,7 +7,7 @@ import {
   getIconsByCategory,
   getIconMetadata,
   type IconName 
-} from '@/components/ui/icons';
+} from './icons';
 
 /**
  * Icon Gallery component - demonstrates all available icons
