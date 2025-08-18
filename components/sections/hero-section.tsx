@@ -36,7 +36,7 @@ export default function Component() {
     className="relative min-h-screen overflow-hidden z-0 transition-all duration-300 ease-out" 
     style={{ 
       background: '#001B6A0A',
-      paddingTop: isNavbarVisible ? '5rem' : '1rem' // 20px when navbar visible, 4px when hidden
+      paddingTop: isNavbarVisible ? '5rem' : '1rem' // 80px when navbar visible, 16px when hidden
     }}
     animate={{
       paddingTop: isNavbarVisible ? '5rem' : '1rem'
