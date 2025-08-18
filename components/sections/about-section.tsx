@@ -1,155 +1,179 @@
+'use client'
+
 import { BadgeCheck } from 'lucide-react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
-import SvgIcon from '../ui/svg-icon'
-import { Icons } from '../ui/icons'
+import SvgIcon from '../shared/svg-icon'
+import { Icons } from '../shared/icons'
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-transparent outline-0 outline-blue-600">
-      <div
+    <section className="relative overflow-hidden bg-transparent">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.6 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="pointer-events-none absolute -z-10 inset-y-0 right-0 w-1/2 bg-gradient-to-b from-amber-50/60 to-white"
         aria-hidden="true"
       />
       <div className="mx-auto max-w-7xl px-6 py-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-24">
         {/* Left image with decorative shapes */}
-        <div className="relative order-2 mt-10 flex items-center justify-center lg:order-1 lg:mt-0 w-full h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[600px] lg:h-full">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative order-2 mt-10 flex items-center justify-center lg:order-1 lg:mt-0 w-full h-auto min-h-[300px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[600px] lg:h-full"
+        >
           <div className="relative flex flex-1 w-full h-full max-w-none aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto">
             {/* Soft shapes behind the photo */}
-            <div className="absolute right-4/8 top-0 h-24 w-24 rounded-full bg-blue-50" aria-hidden="true" />
-            <div className="absolute right-8 top-1/3 z-20 rotate-0" aria-hidden="true">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="absolute right-4/8 top-0 h-24 w-24 rounded-full bg-blue-50" 
+              aria-hidden="true" 
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="absolute right-8 top-1/3 z-20 rotate-0" 
+              aria-hidden="true"
+            >
               <SvgIcon name={Icons.YELLOW_TRIANGLE} size={100} />
-            </div>
-            <div className="absolute right-1/2 translate-x-1/4 translate-y-1/8 mx-auto bottom-0 z-20 w-32 aspect-square" aria-hidden="true">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0, rotate: 10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="absolute right-1/2 translate-x-1/4 translate-y-1/8 mx-auto bottom-0 z-20 w-32 aspect-square" 
+              aria-hidden="true"
+            >
              <SvgIcon name={Icons.BLUE_TRIANGLE} size={96} />
-            </div>
-            {/* Main person image */}
-            {/* <div
-              className="w-0 h-0
-                     border-l-[100px] border-l-transparent
-                     border-r-[100px] border-r-transparent
-                     border-b-[173.2px] border-b-blue-500
-                     mx-auto fuchsia-300/80" // Center the triangle
-              style={{
-                // The height of an equilateral triangle with side 's' is s * sqrt(3) / 2
-                // If border-left/right is 100px (half of base 's'), then 's' is 200px.
-                // Height = 200 * sqrt(3) / 2 = 100 * 1.732 = 173.2px.
-                // This ensures it's a true equilateral triangle.
-              }}
-            ></div> */}
-            {/* <div
-              style={{
-                width: '100px',
-                height: '100px',
-                backgroundColor: 'blue',
-                clipPath: 'polygon(0 0, 100% 100%, 0 100%)',
-              }}
-            ></div>
-            <div
-              className="border-b-[100px] border-b-transparent
-                     border-l-[150px] border-l-red-500
-                     mx-auto" // Center the triangle
-        ></div> */}
-            <div className="relative w-full h-full p-2 sm:p-3 shadow-none ring-0 ring-slate-200 outline-0 outline-lime-400">
-              {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="490"
-                height="553"
-                viewBox="0 0 490 553"
-                fill="none"
-                className="absolute inset-0 w-full z-10"
-                aria-hidden="true"
-              >
-                <path
-                  d="M61.405 547.07L469.607 310.335C496.43 294.778 496.357 256.018 469.469 240.566L60.3521 5.41744C33.4699 -10.0341 -0.0588989 9.41193 0.000335693 40.4203L0.91507 512.297C0.974274 543.305 34.582 562.62 61.405 547.07Z"
-                  fill="#246BFD"
-                  fill-opacity="0.13"
-                />
-              </svg> */}
-              {/* <div
-              className='w-full aspect-square rotate-180 absolute z-10 inset-x-3.5 top-0 bg-blue-500/40'
-              style={{
-                clipPath: 'polygon(0 0, 100% 100%, 0 100%)',
-              }} />
-            <div
-              className='w-full aspect-square rotate-270 absolute z-10 -right-3.5 bottom-0 bg-blue-500/40'
-              style={{
-                clipPath: 'polygon(0 0, 100% 100%, 0 100%)',
-              }} /> */}
-              {/* <div className='bg-amber-600 aspect-square w-4 z-10 mx-auto inset-0 translate-x-13 rounded-full my-auto absolute'/> */}
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              className="relative w-full h-full p-2 sm:p-3 shadow-none ring-0 ring-slate-200 outline-0 outline-lime-400"
+            >
               <Image
                 src="/images/about-section-hero-with-svg-banner.png"
                 alt="Winspire consultant ready to assist providers"
                 fill
-                // width={380}
-                // height={520}
                 style={{ objectFit: 'contain'}}
                 className="rounded-lg sm:rounded-xl object-cover relative z-15 -translate-y-1 sm:-translate-y-2"
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right content */}
-        <div className="order-1 lg:order-2">
-          <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 shadow-sm ring-1 ring-slate-200">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="order-1 lg:order-2"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 shadow-sm ring-1 ring-slate-200"
+          >
             About Us
-          </div>
+          </motion.div>
 
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl"
+          >
             <span className="text-amber-500">Winspire</span> is a critical component of{' '}
             <span className="text-amber-500">Consulting</span> businesses
-          </h2>
+          </motion.h2>
 
-          <p className="mt-4 max-w-2xl text-slate-600">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-4 max-w-2xl text-slate-600"
+          >
             Winspire Consultancy provides in‑depth and holistic support services to participants
             with disabilities and providers under the National Disability Insurance Scheme (NDIS).
             We deliver support through direct engagements, collaborations with healthcare providers,
             and referrals from NDIS and Community services.
-          </p>
+          </motion.p>
 
           {/* Vision and Mission */}
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <Card className="border-0 shadow-none p-0 bg-transparent">
-              <CardContent className="p-5">
-                <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
-                  <SvgIcon name={Icons.OUR_VISION} size={36} />
-                </div>
-                <h3 className="text-base font-semibold text-slate-900">Our Vision</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Enriching growth for service providers and service users through collaboration and
-                  engagement of all stakeholders.
-                </p>
-              </CardContent>
-            </Card>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-8 grid gap-6 sm:grid-cols-2"
+          >
+            <motion.div
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="border-0 shadow-none p-0 bg-transparent">
+                <CardContent className="p-5">
+                  <motion.div 
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]"
+                  >
+                    <SvgIcon name={Icons.OUR_VISION} size={36} />
+                  </motion.div>
+                  <h3 className="text-base font-semibold text-slate-900">Our Vision</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Enriching growth for service providers and service users through collaboration and
+                    engagement of all stakeholders.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="border-0 shadow-none p-0 bg-transparent">
-              <CardContent className="p-5">
-                <div className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]">
-                  {/* <Image src='/icons/our-mission-icon.svg' width={40} height={40} style={{ objectFit: 'contain' }} alt="Bubble Background Icon" className='max-w-10 aspect-square' /> */}
-                  {/* our-mission-icon */}
-                   <SvgIcon name={Icons.OUR_MISSION} size={36} />
-                </div>
-                <h3 className="text-base font-semibold text-slate-900">Our Mission</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Partnering with individuals, service providers and other stakeholders to deliver
-                  person‑centred and service‑centred services that promote practical, safe and
-                  responsive services.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Small trust row */}
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-600">
-            <span className="inline-flex items-center gap-2">
-              <BadgeCheck className="h-4 w-4 text-blue-700" /> 7+ years combined expertise
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <BadgeCheck className="h-4 w-4 text-blue-700" /> Based in Western Australia
-            </span>
-          </div>
-        </div>
+            <motion.div
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="border-0 shadow-none p-0 bg-transparent">
+                <CardContent className="p-5">
+                  <motion.div 
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-3 inline-flex aspect-square w-16 items-center justify-center bg-[#F8F9FC] text-blue-700 [border-radius:10px_40px_40px_40px]"
+                  >
+                     <SvgIcon name={Icons.OUR_MISSION} size={36} />
+                  </motion.div>
+                  <h3 className="text-base font-semibold text-slate-900">Our Mission</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Partnering with individuals, service providers and other stakeholders to deliver
+                    person‑centred and service‑centred services that promote practical, safe and
+                    responsive services.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+          
+        </motion.div>
       </div>
     </section>
   )

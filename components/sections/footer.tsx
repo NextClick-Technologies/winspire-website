@@ -3,8 +3,10 @@
 import { ArrowRight, Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import Link from 'next/link'
 
 export default function FooterSection() {
   const [email, setEmail] = useState('')
@@ -21,14 +23,33 @@ export default function FooterSection() {
       {/* Newsletter Bar */}
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-6 pb-8 lg:px-12">
-          <div className="relative -mb-16 rounded-2xl bg-amber-400 px-6 py-8 shadow-sm ring-1 ring-amber-300 sm:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative -mb-16 rounded-2xl bg-amber-400 px-6 py-8 shadow-sm ring-1 ring-amber-300 sm:px-8"
+          >
             <div className="grid items-center gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-6">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="lg:col-span-6"
+              >
                 <h3 className="text-2xl font-semibold text-blue-950">
                   Subscribe To Our Newsletter
                 </h3>
-              </div>
-              <form onSubmit={onSubscribe} className="lg:col-span-6">
+              </motion.div>
+              <motion.form 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                onSubmit={onSubscribe} 
+                className="lg:col-span-6"
+              >
                 <div className="flex w-full overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 focus-within:ring-2 focus-within:ring-blue-700">
                   <label htmlFor="newsletter-email" className="sr-only">
                     Your e-mail address
@@ -49,18 +70,24 @@ export default function FooterSection() {
                     Submit Now
                   </Button>
                 </div>
-              </form>
+              </motion.form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Main Footer */}
       <div className="bg-blue-900 pt-24 text-blue-50">
         <div className="mx-auto max-w-7xl px-6 pb-12 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-12">
+          <div className="grid gap-10 lg:grid-cols-10">
             {/* Brand */}
-            <div className="lg:col-span-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4"
+            >
               <div className="mb-4 inline-flex items-center space-x-2">
                 <div className="rounded bg-white px-3 py-2 font-bold text-blue-900">WC</div>
                 <span className="text-white/90">WINSPIRE</span>
@@ -71,63 +98,64 @@ export default function FooterSection() {
               </p>
 
               <div className="mt-4 space-y-2 text-sm">
-                <div className="flex items-center gap-2">
+                <motion.div 
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center gap-2"
+                >
                   <Phone className="h-4 w-4 text-amber-300" />
                   <a href="tel:+6123456765" className="hover:underline">
                     (+123) 123 456 765
                   </a>
-                </div>
-                <div className="flex items-center gap-2">
+                </motion.div>
+                <motion.div 
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center gap-2"
+                >
                   <Mail className="h-4 w-4 text-amber-300" />
                   <a href="mailto:info@winspire.com" className="hover:underline">
                     info@winspire.com
                   </a>
-                </div>
+                </motion.div>
               </div>
 
               <div className="mt-4 flex items-center gap-3">
-                <a
-                  href="https://facebook.com"
-                  aria-label="Facebook"
-                  className="rounded bg-white/10 p-2 hover:bg-white/20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  aria-label="Twitter"
-                  className="rounded bg-white/10 p-2 hover:bg-white/20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  aria-label="Instagram"
-                  className="rounded bg-white/10 p-2 hover:bg-white/20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Instagram className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  aria-label="LinkedIn"
-                  className="rounded bg-white/10 p-2 hover:bg-white/20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
+                {[
+                  { href: "https://facebook.com", label: "Facebook", icon: Facebook },
+                  { href: "https://twitter.com", label: "Twitter", icon: Twitter },
+                  { href: "https://instagram.com", label: "Instagram", icon: Instagram },
+                  { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
+                ].map(({ href, label, icon: Icon }, index) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="rounded bg-white/10 p-2 hover:bg-white/20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </motion.a>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Links: Our Services */}
-            <div className="lg:col-span-3">
-              <h4 className="mb-4 font-semibold text-white">Our services</h4>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4"
+            >
+              <h4 className="mb-4 font-semibold text-white">Our Services</h4>
               <ul className="space-y-3 text-sm text-blue-100/90">
                 {[
                   'Operational planning and advice',
@@ -137,80 +165,96 @@ export default function FooterSection() {
                   'NDIS audit preparation (Desktop)',
                   'NDIS Certification audit (Stage 2)',
                   'Follow‑up review (offsite)',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
+                ].map((item, index) => (
+                  <motion.li 
+                    key={item} 
+                    className="flex items-start gap-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 5 }}
+                  >
                     <ArrowRight className="mt-0.5 h-4 w-4 text-amber-300" />
                     <span className="hover:underline cursor-pointer">{item}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
-            {/* Links: Other */}
-            <div className="lg:col-span-2">
-              <h4 className="mb-4 font-semibold text-white">Other</h4>
+            {/* Links: Quick Links */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="lg:col-span-2"
+            >
+              <h4 className="mb-4 font-semibold text-white">Quick Links</h4>
               <ul className="space-y-3 text-sm text-blue-100/90">
-                {['About', 'Our Mission', 'Resources', 'FAQs', 'Contact'].map((item) => (
-                  <li key={item}>
+                {['About', 'Our Mission', 'Resources', 'FAQs', 'Contact'].map((item, index) => (
+                  <motion.li 
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 5 }}
+                  >
                     <a
                       href={`/${item.toLowerCase().replace(' ', '-')}`}
                       className="hover:underline"
                     >
                       {item}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
-            {/* Recent blog */}
-            <div className="lg:col-span-3">
-              <h4 className="mb-4 font-semibold text-white">Recent blog</h4>
-              <div className="space-y-5">
-                {[1, 2].map((i) => (
-                  <a
-                    key={i}
-                    href={`/blog/post-${i}`}
-                    className="group flex gap-4 rounded-lg p-2 hover:bg-white/5"
-                  >
-                    <div className="overflow-hidden rounded bg-white">
-                      <Image
-                        src="/placeholder.svg?height=60&width=80"
-                        alt="Blog thumbnail"
-                        width={80}
-                        height={60}
-                        className="h-[60px] w-[80px] object-cover"
-                      />
-                    </div>
-                    <div>
-                      <div className="text-xs text-blue-200">June 19, 2025</div>
-                      <div className="font-medium text-blue-50 group-hover:underline">
-                        The standard chunk of Lorem Ipsum
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-blue-100/80 lg:flex-row lg:px-12">
-            <div>© 2025 | All Rights Reserved</div>
-            <div className="flex gap-6">
-              <a href="/terms" className="hover:underline">
-                Terms & Conditions
-              </a>
-              <a href="/privacy" className="hover:underline">
-                Privacy Policy
-              </a>
-              <a href="/contact" className="hover:underline">
-                Contact Us
-              </a>
-            </div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-blue-100/80 lg:flex-row lg:px-12"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              © 2025 | All Rights Reserved
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="flex gap-6"
+            >
+              {['Terms & Conditions', 'Privacy Policy', 'Contact Us'].map((item, index) => (
+                <motion.div
+                  key={item}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link 
+                    href={`/${item.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
+                    className="hover:text-secondary-gold hover:scale-105 transition-all duration-300"
+                  >
+                    {item}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Mail, Menu, Home, Info, Wrench, Phone, Sparkles, Calendar, ArrowRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { useEffect, useState } from "react"
@@ -30,72 +31,100 @@ export default function EnhancedMobileNav() {
   }, [lastScrollY])
 
   return (
-    <div
-      className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-full px-3 sm:px-4 pointer-events-none transition-all duration-300 ease-out ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6 }
+      }}
+      className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[98svw] lg:w-full px-3 sm:px-4 pointer-events-none transition-all duration-700 ease-out ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
       }`}
     >
       <div className="mx-auto max-w-6xl pointer-events-auto">
-        <div className="flex items-center justify-between gap-4 rounded-none bg-white/10 backdrop-blur-md shadow-xl ring-1 ring-white/20 px-4 sm:px-0 md:pl-6 py-0 border border-white/20">
+        <motion.div 
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex items-center justify-between gap-4 rounded-none bg-white/10 backdrop-blur-md shadow-xl ring-1 ring-white/20 px-4 sm:px-0 md:pl-6 max-lg:py-2 py-0 border border-white/20"
+        >
           {/* Brand */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 shrink-0 hover:scale-105 transition-all duration-300 ease-out"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
           >
-            <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg leading-none select-none shadow-lg">
-              WC
-            </div>
-            <span className="text-blue-950/95 font-semibold text-sm tracking-wide hidden sm:inline">WINSPIRE</span>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/"
-              className="text-blue-950/95 hover:text-blue-950/95 hover:bg-white/15 px-3 py-2 rounded-xl font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
+              className="flex items-center gap-2 shrink-0 hover:scale-105 transition-all duration-300 ease-out"
             >
-              Home
+              <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg leading-none select-none shadow-lg">
+                WC
+              </div>
+              <span className="text-blue-950/95 font-semibold text-sm tracking-wide hidden sm:inline">WINSPIRE</span>
             </Link>
-            <Link
-              href="/about"
-              className="text-blue-950/95 hover:text-blue-950/95 hover:bg-white/15 px-3 py-2 rounded-xl font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="text-blue-950/95 hover:text-blue-950/95 hover:bg-white/15 px-3 py-2 rounded-xl font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-            >
-              Services
-            </Link>
-            <Link
-              href="/contact"
-              className="text-blue-950/95 hover:text-white hover:bg-accent px-3 py-2 rounded-xs font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-            >
-              Contact
-            </Link>
+          </motion.div>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/about", label: "About Us" },
+              { href: "/services", label: "Services" },
+              { href: "/contact", label: "Contact" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -2 }}
+              >
+                <Link
+                  href={item.href}
+                  className={`text-blue-950/95 hover:text-blue-950/95 hover:bg-white/15 px-3 py-2 rounded-xl font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg ${
+                    item.href === "/contact" ? "hover:text-white hover:bg-accent" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
           </nav>
 
           {/* Help / Contact (desktop) */}
-          <div className="hidden md:flex items-center gap-2 bg-blue-950/85 backdrop-blur-md border-none outline-none text-white px-3 py-4 rounded-none text-xs shadow-lg hover:bg-accent hover:text-primary transition-all duration-300 ease-out cursor-pointer">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            whileHover={{ scale: 1.02, y: -2 }}
+            className="hidden lg:flex items-center gap-2 bg-blue-950/85 backdrop-blur-md border-none outline-none text-white px-3 py-4 rounded-none text-xs shadow-lg hover:bg-accent hover:text-primary transition-all duration-300 ease-out cursor-pointer"
+          >
             <Mail className="h-4 w-4 text-white" />
             <div className="leading-tight">
               <div className="opacity-90">Need help?</div>
               <div className="font-medium text-[13px]">admin@email.com</div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Mobile menu */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="bg-blue-900 border border-blue-400/30 hover:bg-blue-800/90 hover:scale-110 transition-all duration-300 ease-out shadow-lg"
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <Menu className="h-5 w-5 text-white" />
-                </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="bg-blue-900 border border-blue-400/30 hover:bg-blue-800/90 hover:scale-110 transition-all duration-300 ease-out shadow-lg"
+                  >
+                    <Menu className="h-5 w-5 text-white" />
+                  </Button>
+                </motion.div>
               </SheetTrigger>
               <SheetContent
                 side="right"
@@ -226,8 +255,8 @@ export default function EnhancedMobileNav() {
               </SheetContent>
             </Sheet>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
