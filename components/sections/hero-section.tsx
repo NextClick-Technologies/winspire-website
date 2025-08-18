@@ -201,14 +201,7 @@ export default function Component() {
               className='!opacity-50'
               gradient="radial-gradient(50% 50% at 50% 50%, rgba(91, 74, 249, 0.5) 0%, rgba(36, 107, 253, 0.5) 0.01%, rgba(255, 255, 255, 0) 100%)"
             />
-        {/* background: radial-gradient(50% 50% at 50% 50%, rgba(91, 74, 249, 0.5) 0%, rgba(36, 107, 253, 0.5) 0.01%, rgba(255, 255, 255, 0) 100%);
       </motion.div>
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className='absolute inset-0 z-10 backdrop-blur-md' 
-      />
     </motion.section>
   )
 }
