@@ -86,6 +86,7 @@ export default function AboutSection() {
                 style={{ objectFit: 'contain'}}
                 className="rounded-lg sm:rounded-xl object-cover relative z-15 -translate-y-1 sm:-translate-y-2"
               />
+              {/* <div className='absolute mx-auto right-1/2 translate-y-10/12 z-20 h-1/2 bg-red-500 w-2 rounded-full rotate-60' /> */}
             </div>
           </div>
         </div>
