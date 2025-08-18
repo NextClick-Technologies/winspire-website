@@ -38,7 +38,7 @@ export default function EnhancedMobileNav() {
         y: 0,
         transition: { duration: 0.6 }
       }}
-      className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[98svw] lg:w-full px-3 sm:px-4 pointer-events-none transition-all duration-800 ease-out ${
+      className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[98svw] lg:w-full px-3 sm:px-4 pointer-events-none transition-all duration-700 ease-out ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
       }`}
     >
