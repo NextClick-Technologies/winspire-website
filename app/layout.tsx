@@ -6,6 +6,7 @@ import SmoothScroll from '../components/smooth-scroll'
 import Navbar from '@/components/navbar'
 import FooterSection from '@/components/sections/footer'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -41,6 +42,7 @@ html {
   <FooterSection />
         <ScrollToTop />
       </body>
+      <Analytics />
     </html>
   )
 }
