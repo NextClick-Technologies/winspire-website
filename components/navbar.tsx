@@ -147,11 +147,12 @@ export default function EnhancedMobileNav() {
                 <SheetHeader className="pb-6">
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg leading-none select-none shadow-lg">
+                    {/* <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg leading-none select-none shadow-lg">
                       WC
-                    </div>
+                    </div> */}
+                    <SvgIcon name={Icons.LOGO} size={{ width: 56, height: 20 }} />
                     <div>
-                      <div className="text-white font-semibold text-base tracking-wide">WINSPIRE</div>
+                      {/* <div className="text-white font-semibold text-base tracking-wide">WINSPIRE</div> */}
                       <div className="text-white/70 text-xs">Professional Services</div>
                     </div>
                   </div>

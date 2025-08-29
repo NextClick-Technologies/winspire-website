@@ -7,6 +7,8 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import Link from 'next/link'
+import SvgIcon from '../shared/svg-icon'
+import { Icons } from '@/lib/icons'
 
 export default function FooterSection() {
   const [email, setEmail] = useState('')
@@ -89,8 +91,9 @@ export default function FooterSection() {
               className="lg:col-span-4"
             >
               <div className="mb-4 inline-flex items-center space-x-2">
-                <div className="rounded bg-white px-3 py-2 font-bold text-blue-900">WC</div>
-                <span className="text-white/90">WINSPIRE</span>
+                {/* <div className="rounded bg-white px-3 py-2 font-bold text-blue-900">WC</div> */}
+                <SvgIcon name={Icons.LOGO} size={{ width: 124, height: 36 }} />
+                {/* <span className="text-white/90">WINSPIRE</span> */}
               </div>
               <p className="max-w-sm text-blue-100/80">
                 We pride ourselves on high‑quality service and continuous engagement through clear,
