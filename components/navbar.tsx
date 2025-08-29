@@ -1,11 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { Mail, Menu, Home, Info, Wrench, Phone, Sparkles, Calendar, ArrowRight } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { Mail, Menu, Home, Info, Wrench, Phone, Calendar, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { useEffect, useState } from "react"
+import SvgIcon from './shared/svg-icon'
+import { Icons } from '@/lib/icons'
 
 export default function EnhancedMobileNav() {
   const [isVisible, setIsVisible] = useState(true)
@@ -47,7 +49,7 @@ export default function EnhancedMobileNav() {
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-between gap-4 rounded-none bg-white/10 backdrop-blur-md shadow-xl ring-1 ring-white/20 px-4 sm:px-0 md:pl-6 max-lg:py-2 py-0 border border-white/20"
+          className="flex items-center justify-between gap-4 rounded-none bg-white backdrop-blur-md shadow-xl ring-1 ring-white/20 px-4 sm:px-0 md:pl-6 max-lg:py-2 py-0 border border-white/20"
         >
           {/* Brand */}
           <motion.div
@@ -59,10 +61,10 @@ export default function EnhancedMobileNav() {
               href="/"
               className="flex items-center gap-2 shrink-0 hover:scale-105 transition-all duration-300 ease-out"
             >
-              <div className="bg-blue-900 text-white px-3 py-2 rounded font-bold text-lg leading-none select-none shadow-lg">
-                WC
+              <div className="rounded bg-transparent font-bold text-lg leading-none select-none shadow-none">
+                <SvgIcon name={Icons.LOGO} size={{ width: 128, height: 24 }} />
               </div>
-              <span className="text-blue-950/95 font-semibold text-sm tracking-wide hidden sm:inline">WINSPIRE</span>
+              {/* <span className="text-blue-950/95 font-semibold text-sm tracking-wide hidden sm:inline">WINSPIRE</span> */}
             </Link>
           </motion.div>
 
@@ -104,7 +106,7 @@ export default function EnhancedMobileNav() {
             <Mail className="h-4 w-4 text-white" />
             <div className="leading-tight">
               <div className="opacity-90">Need help?</div>
-              <div className="font-medium text-[13px]">admin@email.com</div>
+              <div className="font-medium text-[13px]">admin@winspireconsultancy.com.au</div>
             </div>
           </motion.div>
 
@@ -166,10 +168,10 @@ export default function EnhancedMobileNav() {
                 </SheetHeader>
 
                 <div className="space-y-4 px-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500/20 to-amber-400/20 backdrop-blur-md border border-white/20 px-3 py-1.5 text-xs font-medium shadow-lg">
+                  {/* <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500/20 to-amber-400/20 backdrop-blur-md border border-white/20 px-3 py-1.5 text-xs font-medium shadow-lg">
                     <Sparkles className="h-3.5 w-3.5 text-white" />
                     <span className="text-white">Quick Navigation</span>
-                  </div>
+                  </div> */}
 
                   <nav className="space-y-2">
                     <SheetClose asChild>

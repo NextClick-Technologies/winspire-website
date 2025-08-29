@@ -6,6 +6,7 @@
 // Define all available icons as a const object for type safety
 export const ICON_NAMES = {
   ADVICE: 'advice',
+  LOGO: 'Logo',
   BLUE_TRIANGLE: 'blue-triangle-icon',
   YELLOW_TRIANGLE: 'yellow-triangle-icon',
   BUBBLE_BG: 'bubble-bg-icon',
@@ -27,6 +28,12 @@ export type IconName = typeof ICON_NAMES[keyof typeof ICON_NAMES];
 
 // Icon metadata for better developer experience
 export const ICON_METADATA = {
+  [ICON_NAMES.LOGO]: {
+    name: 'Logo',
+    description: 'Main logo icon',
+    category: 'Winspire Logo',
+    defaultSize: { width: 56, height: 57 },
+  },
   [ICON_NAMES.ADVICE]: {
     name: 'Advice',
     description: 'Professional advice and consultation icon',

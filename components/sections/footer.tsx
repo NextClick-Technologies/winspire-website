@@ -114,8 +114,8 @@ export default function FooterSection() {
                   className="flex items-center gap-2"
                 >
                   <Mail className="h-4 w-4 text-amber-300" />
-                  <a href="mailto:info@winspire.com" className="hover:underline">
-                    info@winspire.com
+                  <a href="mailto:info@winspireconsultancy.com.au" className="hover:underline">
+                    info@winspireconsultancy.com.au
                   </a>
                 </motion.div>
               </div>
