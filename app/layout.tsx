@@ -7,6 +7,7 @@ import Navbar from '@/components/navbar'
 import FooterSection from '@/components/sections/footer'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -14,9 +15,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Winspire Consultancy',
+  description: 'Winspire Consultancy',
 }
 
 export default function RootLayout({
@@ -43,6 +43,7 @@ html {
         <ScrollToTop />
       </body>
       <Analytics />
+      <SpeedInsights />
     </html>
   )
 }
