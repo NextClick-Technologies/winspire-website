@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { ArrowUp } from "lucide-react"
-import { useEffect, useState } from "react"
-import { scrollToTop } from "../lib/smooth-scroll"
+import { ArrowUp } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { scrollToTop } from '../lib/smooth-scroll'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,9 +16,9 @@ export default function ScrollToTop() {
       }
     }
 
-    window.addEventListener("scroll", toggleVisibility)
+    window.addEventListener('scroll', toggleVisibility)
 
-    return () => window.removeEventListener("scroll", toggleVisibility)
+    return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
 
   const handleScrollToTop = () => {

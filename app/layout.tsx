@@ -1,13 +1,13 @@
 import { GeistMono } from 'geist/font/mono'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import ScrollToTop from '../components/scroll-to-top'
-import SmoothScroll from '../components/smooth-scroll'
 import Navbar from '@/components/navbar'
 import FooterSection from '@/components/sections/footer'
+import ScrollToTop from '../components/scroll-to-top'
+import SmoothScroll from '../components/smooth-scroll'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -37,9 +37,9 @@ html {
       </head>
       <body className={`${plusJakartaSans.className}`}>
         <SmoothScroll />
-  <Navbar />
-  {children}
-  <FooterSection />
+        <Navbar />
+        {children}
+        <FooterSection />
         <ScrollToTop />
       </body>
       <Analytics />

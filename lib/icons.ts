@@ -21,10 +21,10 @@ export const ICON_NAMES = {
   PERFORMANCE_REVIEW: 'performance-review',
   SATISFACTION: 'satisfaction',
   TRON_LEGACY: 'tron-legacy-image',
-} as const;
+} as const
 
 // Create a type from the icon names
-export type IconName = typeof ICON_NAMES[keyof typeof ICON_NAMES];
+export type IconName = (typeof ICON_NAMES)[keyof typeof ICON_NAMES]
 
 // Icon metadata for better developer experience
 export const ICON_METADATA = {
@@ -46,12 +46,12 @@ export const ICON_METADATA = {
     category: 'decorative',
     defaultSize: { width: 24, height: 24 },
   },
-    [ICON_NAMES.YELLOW_TRIANGLE]: {
-        name: 'Yellow Triangle',
-        description: 'Decorative yellow triangle element',
-        category: 'decorative',
-        defaultSize: { width: 112, height: 127 },
-    },
+  [ICON_NAMES.YELLOW_TRIANGLE]: {
+    name: 'Yellow Triangle',
+    description: 'Decorative yellow triangle element',
+    category: 'decorative',
+    defaultSize: { width: 112, height: 127 },
+  },
   [ICON_NAMES.BUBBLE_BG]: {
     name: 'Bubble Background',
     description: 'Background bubble decoration',
@@ -124,30 +124,30 @@ export const ICON_METADATA = {
     category: 'decorative',
     defaultSize: { width: 24, height: 24 },
   },
-} as const;
+} as const
 
 // Helper function to get icon path
 export const getIconPath = (iconName: IconName): string => {
-  return `/icons/${iconName}.svg`;
-};
+  return `/icons/${iconName}.svg`
+}
 
 // Helper function to get icon metadata
 export const getIconMetadata = (iconName: IconName) => {
-  return ICON_METADATA[iconName];
-};
+  return ICON_METADATA[iconName]
+}
 
 // Helper function to get all icons by category
 export const getIconsByCategory = (category: string) => {
   return Object.entries(ICON_METADATA)
     .filter(([_, metadata]) => metadata.category === category)
-    .map(([iconName]) => iconName as IconName);
-};
+    .map(([iconName]) => iconName as IconName)
+}
 
 // Helper function to get all available categories
 export const getIconCategories = () => {
-  const categories = Object.values(ICON_METADATA).map(metadata => metadata.category);
-  return [...new Set(categories)];
-};
+  const categories = Object.values(ICON_METADATA).map((metadata) => metadata.category)
+  return [...new Set(categories)]
+}
 
 // Export all icons for convenience
-export const Icons = ICON_NAMES;
+export const Icons = ICON_NAMES

@@ -25,18 +25,18 @@ export default function DecorativeDots({
   viewBoxWidth = 64,
   viewBoxHeight = 128,
   dotRadius = 3,
-  dotColor = "#3B82F6",
-  className = "",
+  dotColor = '#3B82F6',
+  className = '',
   animationDelay = 0.8,
   animationDuration = 0.6,
-  keyPrefix = "decorative-dot"
+  keyPrefix = 'decorative-dot',
 }: DecorativeDotsProps) {
   const totalDots = rows * columns
   const cellWidth = viewBoxWidth / columns
   const cellHeight = viewBoxHeight / rows
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: animationDuration, delay: animationDelay }}
@@ -54,7 +54,7 @@ export default function DecorativeDots({
           const col = i % columns
           const x = col * cellWidth + cellWidth / 2 // Center each dot in cell
           const y = row * cellHeight + cellHeight / 2
-          
+
           return (
             <motion.circle
               key={`${keyPrefix}-${i}`}
@@ -64,10 +64,10 @@ export default function DecorativeDots({
               fill={dotColor}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                duration: 0.3, 
-                delay: animationDelay + 0.2 + (i * 0.02),
-                ease: "easeOut"
+              transition={{
+                duration: 0.3,
+                delay: animationDelay + 0.2 + i * 0.02,
+                ease: 'easeOut',
               }}
             />
           )

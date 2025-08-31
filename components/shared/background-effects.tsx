@@ -21,16 +21,15 @@ export default function BackgroundEffects({
   top,
   right,
   bottom,
-  left
+  left,
 }: BackgroundEffectsProps) {
   // Check if any positioning props are provided
-  const hasCustomPosition = top !== undefined || right !== undefined || bottom !== undefined || left !== undefined
-  
+  const hasCustomPosition =
+    top !== undefined || right !== undefined || bottom !== undefined || left !== undefined
+
   return (
     <div
-      className={cn(
-        `absolute aspect-square ${!hasCustomPosition ? 'inset-0' : ''} ${className}`
-      )}
+      className={cn(`absolute aspect-square ${!hasCustomPosition ? 'inset-0' : ''} ${className}`)}
       style={{
         width: `${size}px`,
         height: `${size}px`,
@@ -44,7 +43,7 @@ export default function BackgroundEffects({
         background: gradient,
         opacity: opacity,
         zIndex: zIndex,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
       }}
     />
   )

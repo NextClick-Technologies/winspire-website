@@ -1,14 +1,13 @@
 'use client'
 
-import { ArrowRight, Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
-import Image from 'next/image'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ArrowRight, Facebook, Instagram, Linkedin, Mail, Phone, Twitter } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import Link from 'next/link'
-import SvgIcon from '../shared/svg-icon'
 import { Icons } from '@/lib/icons'
+import SvgIcon from '../shared/svg-icon'
 
 export default function FooterSection() {
   const [email, setEmail] = useState('')
@@ -21,11 +20,11 @@ export default function FooterSection() {
   }
 
   return (
-    <footer className="mt-0 bg-white">
+    <footer id="contact" className="mt-0 bg-white">
       {/* Newsletter Bar */}
       <div className="bg-white">
         <div className="mx-auto max-w-7xl px-6 pb-8 lg:px-12">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -33,7 +32,7 @@ export default function FooterSection() {
             className="relative -mb-16 rounded-2xl bg-amber-400 px-6 py-8 shadow-sm ring-1 ring-amber-300 sm:px-8"
           >
             <div className="grid items-center gap-6 lg:grid-cols-12">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -44,12 +43,12 @@ export default function FooterSection() {
                   Subscribe To Our Newsletter
                 </h3>
               </motion.div>
-              <motion.form 
+              <motion.form
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                onSubmit={onSubscribe} 
+                onSubmit={onSubscribe}
                 className="lg:col-span-6"
               >
                 <div className="flex w-full overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 focus-within:ring-2 focus-within:ring-blue-700">
@@ -83,7 +82,7 @@ export default function FooterSection() {
         <div className="mx-auto max-w-7xl px-6 pb-12 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-10">
             {/* Brand */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -101,7 +100,7 @@ export default function FooterSection() {
               </p>
 
               <div className="mt-4 space-y-2 text-sm">
-                <motion.div 
+                <motion.div
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center gap-2"
@@ -111,7 +110,7 @@ export default function FooterSection() {
                     (+123) 123 456 765
                   </a>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center gap-2"
@@ -125,10 +124,10 @@ export default function FooterSection() {
 
               <div className="mt-4 flex items-center gap-3">
                 {[
-                  { href: "https://facebook.com", label: "Facebook", icon: Facebook },
-                  { href: "https://twitter.com", label: "Twitter", icon: Twitter },
-                  { href: "https://instagram.com", label: "Instagram", icon: Instagram },
-                  { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
+                  { href: 'https://facebook.com', label: 'Facebook', icon: Facebook },
+                  { href: 'https://twitter.com', label: 'Twitter', icon: Twitter },
+                  { href: 'https://instagram.com', label: 'Instagram', icon: Instagram },
+                  { href: 'https://linkedin.com', label: 'LinkedIn', icon: Linkedin },
                 ].map(({ href, label, icon: Icon }, index) => (
                   <motion.a
                     key={label}
@@ -151,7 +150,7 @@ export default function FooterSection() {
             </motion.div>
 
             {/* Links: Our Services */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -169,8 +168,8 @@ export default function FooterSection() {
                   'NDIS Certification audit (Stage 2)',
                   'Follow‑up review (offsite)',
                 ].map((item, index) => (
-                  <motion.li 
-                    key={item} 
+                  <motion.li
+                    key={item}
                     className="flex items-start gap-2"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -186,7 +185,7 @@ export default function FooterSection() {
             </motion.div>
 
             {/* Links: Quick Links */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -196,7 +195,7 @@ export default function FooterSection() {
               <h4 className="mb-4 font-semibold text-white">Quick Links</h4>
               <ul className="space-y-3 text-sm text-blue-100/90">
                 {['About', 'Our Mission', 'Resources', 'FAQs', 'Contact'].map((item, index) => (
-                  <motion.li 
+                  <motion.li
                     key={item}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -214,13 +213,12 @@ export default function FooterSection() {
                 ))}
               </ul>
             </motion.div>
-
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -235,21 +233,17 @@ export default function FooterSection() {
             >
               © 2025 | All Rights Reserved
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              {['Terms & Conditions', 'Privacy Policy', 'Contact Us'].map((item, index) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Link 
-                    href={`/${item.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`} 
+              {['Terms & Conditions', 'Privacy Policy', 'Contact Us'].map((item, _index) => (
+                <motion.div key={item} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                  <Link
+                    href={`/${item.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
                     className="hover:text-secondary-gold hover:scale-105 transition-all duration-300"
                   >
                     {item}

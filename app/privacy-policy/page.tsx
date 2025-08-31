@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
 export default function PrivacyPolicy() {
   return (
@@ -23,8 +23,9 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Introduction</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              We respect your privacy and are committed to protecting your personal data. This privacy policy explains
-              how we collect, use, and safeguard your information when you visit our website.
+              We respect your privacy and are committed to protecting your personal data. This
+              privacy policy explains how we collect, use, and safeguard your information when you
+              visit our website.
             </p>
           </section>
 
@@ -34,22 +35,26 @@ export default function PrivacyPolicy() {
               <div>
                 <h3 className="text-xl font-medium text-gray-900 mb-2">Personal Information</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  We may collect personal information such as your name, email address, phone number, and other contact
-                  details when you voluntarily provide them through our contact forms or newsletter subscriptions.
+                  We may collect personal information such as your name, email address, phone
+                  number, and other contact details when you voluntarily provide them through our
+                  contact forms or newsletter subscriptions.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-900 mb-2">Usage Data</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  We automatically collect certain information about your device and how you interact with our website,
-                  including IP address, browser type, pages visited, and time spent on our site.
+                  We automatically collect certain information about your device and how you
+                  interact with our website, including IP address, browser type, pages visited, and
+                  time spent on our site.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">How We Use Your Information</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              How We Use Your Information
+            </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li>To provide and maintain our services</li>
               <li>To communicate with you about our services</li>
@@ -62,9 +67,9 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Data Security</h2>
             <p className="text-gray-700 leading-relaxed">
-              We implement appropriate security measures to protect your personal information against unauthorized
-              access, alteration, disclosure, or destruction. However, no method of transmission over the internet is
-              100% secure.
+              We implement appropriate security measures to protect your personal information
+              against unauthorized access, alteration, disclosure, or destruction. However, no
+              method of transmission over the internet is 100% secure.
             </p>
           </section>
 

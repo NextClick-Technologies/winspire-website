@@ -1,9 +1,9 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import BackgroundEffects from '../shared/background-effects'
 import DecorativeDots from '../shared/decorative-dots'
@@ -27,34 +27,34 @@ export default function Component() {
       setLastScrollY(currentScrollY)
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
   return (
-  <motion.section 
-    className="relative min-h-screen overflow-hidden z-0 transition-all duration-300 ease-out" 
-    style={{ 
-      background: '#001B6A0A',
-      paddingTop: isNavbarVisible ? '5rem' : '1rem' // 80px when navbar visible, 16px when hidden
-    }}
-    animate={{
-      paddingTop: isNavbarVisible ? '5rem' : '1rem'
-    }}
-    transition={{ duration: 0.3 }}
-  >
-
+    <motion.section
+      id="hero"
+      className="relative min-h-screen overflow-hidden z-0 transition-all duration-300 ease-out"
+      style={{
+        background: '#001B6A0A',
+        paddingTop: isNavbarVisible ? '5rem' : '1rem', // 80px when navbar visible, 16px when hidden
+      }}
+      animate={{
+        paddingTop: isNavbarVisible ? '5rem' : '1rem',
+      }}
+      transition={{ duration: 0.3 }}
+    >
       {/* Hero Section */}
       <section className="relative z-20 px-6 h-[calc(85dvh-1rem)]">
         <div className="max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-12 items-center z-10">
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative space-y-4 lg:space-y-6"
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,7 +63,7 @@ export default function Component() {
               NDIS CONSULTANCY EXPERTS
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -76,7 +76,7 @@ export default function Component() {
               <span className="block">Expert Guidance</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -86,7 +86,7 @@ export default function Component() {
               through compliance, operational excellence, and person-centred care.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -106,8 +106,8 @@ export default function Component() {
                 </Button>
               </motion.div>
             </motion.div>
-             {/* Additional Decorative Dots */}
-            <DecorativeDots 
+            {/* Additional Decorative Dots */}
+            <DecorativeDots
               rows={8}
               columns={4}
               width={64}
@@ -121,14 +121,14 @@ export default function Component() {
           </motion.div>
 
           {/* Right Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[50vh] lg:h-full lg:px-12 py-2 lg:py-20"
           >
             {/* Decorative Elements */}
-            <DecorativeDots 
+            <DecorativeDots
               rows={8}
               columns={4}
               width={64}
@@ -139,7 +139,7 @@ export default function Component() {
             />
 
             {/* Main Image Container */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -157,7 +157,7 @@ export default function Component() {
               </div>
 
               {/* Small Chart Icon */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -171,7 +171,7 @@ export default function Component() {
                   height={12}
                   className="w-18 h-full"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 1.4 }}
@@ -179,10 +179,7 @@ export default function Component() {
                 />
               </motion.div>
             </motion.div>
-
-           
           </motion.div>
-
         </div>
       </section>
       <motion.div
@@ -190,17 +187,29 @@ export default function Component() {
         animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
         transition={{ duration: 1.5, delay: 0.5 }}
       >
-        <BackgroundEffects top='0%' left='1%' size='500' zIndex={5} className='-translate-x-2/5 -translate-y-2/5'/>
-        <BackgroundEffects top='0%' right='0%' size='400' zIndex={5} className='!opacity-80 translate-x-2/5 -translate-y-2/5'/>
-         {/* Right column grid background effect */}
-            <BackgroundEffects 
-              bottom='-3%' 
-              left='45%' 
-              size='400' 
-              zIndex={5} 
-              className='!opacity-50'
-              gradient="radial-gradient(50% 50% at 50% 50%, rgba(91, 74, 249, 0.5) 0%, rgba(36, 107, 253, 0.5) 0.01%, rgba(255, 255, 255, 0) 100%)"
-            />
+        <BackgroundEffects
+          top="0%"
+          left="1%"
+          size="500"
+          zIndex={5}
+          className="-translate-x-2/5 -translate-y-2/5"
+        />
+        <BackgroundEffects
+          top="0%"
+          right="0%"
+          size="400"
+          zIndex={5}
+          className="!opacity-80 translate-x-2/5 -translate-y-2/5"
+        />
+        {/* Right column grid background effect */}
+        <BackgroundEffects
+          bottom="-3%"
+          left="45%"
+          size="400"
+          zIndex={5}
+          className="!opacity-50"
+          gradient="radial-gradient(50% 50% at 50% 50%, rgba(91, 74, 249, 0.5) 0%, rgba(36, 107, 253, 0.5) 0.01%, rgba(255, 255, 255, 0) 100%)"
+        />
       </motion.div>
     </motion.section>
   )

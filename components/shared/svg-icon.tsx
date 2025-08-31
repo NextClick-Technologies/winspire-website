@@ -1,34 +1,34 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { IconName, getIconPath, getIconMetadata } from '@/lib/icons';
+import React from 'react'
+import { getIconMetadata, getIconPath, type IconName } from '@/lib/icons'
+import { cn } from '@/lib/utils'
 
 export interface SvgIconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /** The name of the icon to display */
-  name: IconName;
+  name: IconName
   /** Custom size for the icon. If not provided, uses the icon's default size */
-  size?: number | { width: number; height: number };
+  size?: number | { width: number; height: number }
   /** Additional CSS classes */
-  className?: string;
+  className?: string
   /** Alt text for accessibility */
-  alt?: string;
+  alt?: string
   /** Whether to use the icon's original colors or inherit from parent */
-  preserveColors?: boolean;
+  preserveColors?: boolean
 }
 
 /**
  * SVG Icon component for displaying icons from the project's icon library
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
  * <SvgIcon name="advice" />
- * 
+ *
  * // With custom size
  * <SvgIcon name="calendar" size={32} />
- * 
+ *
  * // With custom styling
  * <SvgIcon name="light-bulb-icon" className="text-blue-500" size={24} />
- * 
+ *
  * // Preserve original colors
  * <SvgIcon name="our-mission-icon" preserveColors />
  * ```
@@ -41,22 +41,22 @@ export const SvgIcon: React.FC<SvgIconProps> = ({
   preserveColors = true,
   ...props
 }) => {
-  const iconPath = getIconPath(name);
-  const metadata = getIconMetadata(name);
-  
+  const iconPath = getIconPath(name)
+  const metadata = getIconMetadata(name)
+
   // Determine icon dimensions
   const iconSize = React.useMemo(() => {
     if (typeof size === 'number') {
-      return { width: size, height: size };
+      return { width: size, height: size }
     }
     if (size && typeof size === 'object') {
-      return size;
+      return size
     }
-    return metadata.defaultSize;
-  }, [size, metadata.defaultSize]);
+    return metadata.defaultSize
+  }, [size, metadata.defaultSize])
 
   // Generate alt text if not provided
-  const iconAlt = alt || `${metadata.name} icon`;
+  const iconAlt = alt || `${metadata.name} icon`
 
   return (
     <img
@@ -71,7 +71,7 @@ export const SvgIcon: React.FC<SvgIconProps> = ({
       )}
       {...props}
     />
-  );
-};
+  )
+}
 
-export default SvgIcon;
+export default SvgIcon

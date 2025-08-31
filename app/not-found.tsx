@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { ArrowLeft, Home } from "lucide-react"
+import { ArrowLeft, Home } from 'lucide-react'
+import Link from 'next/link'
 
 export default function NotFound() {
   return (
@@ -10,7 +10,7 @@ export default function NotFound() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/images/gradient-background.jpg)",
+          backgroundImage: 'url(/images/gradient-background.jpg)',
         }}
       />
 
