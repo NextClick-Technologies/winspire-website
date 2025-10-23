@@ -41,6 +41,14 @@ html {
           src='https://umami.nmcyber.com/script.js'
           data-website-id='042c63bb-33a2-4e27-8ddd-a2a1c448bc59'
         />
+          <Script
+            src="https://rybbit.exactli.io/api/script.js"
+            async
+            data-site-id="5"
+            data-track-errors="true"
+            data-session-replay="true"
+            strategy="afterInteractive"
+          />
       </head>
       <body className={`${plusJakartaSans.className}`}>
         <SmoothScroll />
