@@ -2,14 +2,14 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "npm@10.8.2",
+  "packageManager": "bun@1.1.42",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "biome check --vcs-use-ignore-file=true .",
-    "lint:fix": "biome check --vcs-use-ignore-file=true --write .",
-    "format": "biome format --vcs-use-ignore-file=true --write .",
-    "check": "biome check --vcs-use-ignore-file=true .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "check": "biome check .",
     "start": "next start"
   },
   "dependencies": {
@@ -68,7 +68,7 @@
     "zod": "3.25.67"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.1.4",
+    "@biomejs/biome": "^2.2.7",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",

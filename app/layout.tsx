@@ -1,32 +1,37 @@
-import { GeistMono } from "geist/font/mono";
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import Navbar from "@/components/navbar";
-import FooterSection from "@/components/sections/footer";
-import ScrollToTop from "../components/scroll-to-top";
-import SmoothScroll from "../components/smooth-scroll";
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
+import { GeistMono } from 'geist/font/mono'
+import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import Script from 'next/script'
+
+import { NavbarClient } from '@/components/client/navbar-client'
+import { ScrollToTopClient } from '@/components/client/scroll-to-top-client'
+import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider'
+import { ThemeProvider } from '@/components/providers/theme-provider'
+import { baseMetadata, SITE_NAME, SITE_DESCRIPTION } from '@/lib/server/metadata'
+import { ANALYTICS_SCRIPT_URL, ANALYTICS_WEBSITE_ID } from '@/lib/server/constants'
+
+import './globals.css'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
-  title: "Winspire Consultancy",
-  description: "Winspire Consultancy",
-};
+  ...baseMetadata,
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <style>{`
 html {
@@ -38,19 +43,20 @@ html {
         <Script
           async
           defer
-          src='https://umami.nmcyber.com/script.js'
-          data-website-id='042c63bb-33a2-4e27-8ddd-a2a1c448bc59'
+          src={ANALYTICS_SCRIPT_URL}
+          data-website-id={ANALYTICS_WEBSITE_ID}
         />
       </head>
-      <body className={`${plusJakartaSans.className}`}>
-        <SmoothScroll />
-        <Navbar />
-        {children}
-        <FooterSection />
-        <ScrollToTop />
+      <body className={`${plusJakartaSans.className}`} suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <SmoothScrollProvider />
+          <NavbarClient />
+          {children}
+          <ScrollToTopClient />
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
-      <Analytics />
-      <SpeedInsights />
     </html>
-  );
+  )
 }

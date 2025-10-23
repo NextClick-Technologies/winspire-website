@@ -79,8 +79,7 @@
   --primary-blue: #246bfd;
   --primary-blue-light: #4a7fff;
   --primary-gold: #f5c71d;
-  --secondary-grey: #333f4d;
-  --secondary-grey-light: #f8f9fc;
+  --secondary-gold: #f8bc26;
   --tertiary-background: #1a1a1a;
 
   /* Primary Color System */
@@ -96,8 +95,7 @@
   /* Accent Color System */
   --accent: var(--primary-gold);
   --accent-foreground: oklch(0.145 0 0);
-  --accent-secondary: var(--secondary-grey);
-  --accent-secondary-light: var(--secondary-grey-light);
+  --accent-secondary: var(--secondary-gold);
   --accent-secondary-foreground: oklch(0.145 0 0);
 
   /* Tertiary Color System */

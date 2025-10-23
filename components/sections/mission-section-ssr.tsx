@@ -1,27 +1,30 @@
-"use client";
+'use client'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-
-export default function MissionSection() {
+/**
+ * Mission Section - Fully SSR
+ * Pure server-side rendered content with Framer Motion for animations
+ */
+export function MissionSectionSSR() {
   return (
-    <section className='relative overflow-hidden z-0'>
-      <div className='relative mx-auto max-w-7xl px-6 py-16 '>
-        <div className='grid lg:grid lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-20 relative z-40'>
+    <section className="relative overflow-hidden z-0">
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
+        <div className="grid lg:lg lg:grid-cols-12 lg:gap-12 lg:px-12 lg:py-20 relative z-40">
           {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className='lg:col-span-7 z-30'
+            className="lg:col-span-7 z-30"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className='inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 shadow-sm ring-1 ring-slate-200'
+              className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 shadow-sm ring-1 ring-slate-200"
             >
               Our Mission
             </motion.div>
@@ -31,9 +34,9 @@ export default function MissionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className='mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl'
+              className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl"
             >
-              Why <span className='text-amber-500'>Winspire</span> Consultancy?
+              Why <span className="text-amber-500">Winspire</span> Consultancy?
             </motion.h2>
 
             <motion.p
@@ -41,7 +44,7 @@ export default function MissionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className='mt-4 max-w-2xl text-slate-600'
+              className="mt-4 max-w-2xl text-slate-600"
             >
               Based in Western Australia, Winspire Consultancy has supported
               newly established and existing NDIS providers, as well as
@@ -60,22 +63,22 @@ export default function MissionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className='mt-10 lg:col-span-5 lg:mt-0 z-40'
+            className="mt-10 lg:col-span-5 lg:mt-0 z-40"
           >
             <motion.div
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className='relative rounded-3xl bg-gradient-to-b from-amber-200 to-[#F8F9FC] via-80% via-[#F8F9FC] pt-4 px-5 shadow-none ring-0 ring-amber-200'
+              className="relative rounded-3xl bg-gradient-to-b from-amber-200 to-[#F8F9FC] via-80% via-[#F8F9FC] pt-4 px-5 shadow-none ring-0 ring-amber-200"
             >
-              <div className='rounded-lg overflow-hidden'>
+              <div className="rounded-lg overflow-hidden">
                 <Image
-                  src='/images/our-mission.webp'
-                  alt='Team collaborating on NDIS operations and compliance'
+                  src="/images/our-mission.webp"
+                  alt="Team collaborating on NDIS operations and compliance"
                   width={405}
                   height={270}
                   quality={85}
-                  sizes='(max-width: 640px) 100vw, (max-width: 1024px) 405px, 405px'
-                  className='h-auto w-full rounded-xl object-cover'
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 405px, 405px"
+                  className="h-auto w-full rounded-xl object-cover"
                 />
               </div>
 
@@ -85,7 +88,7 @@ export default function MissionSection() {
                 whileInView={{ opacity: 0.3, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className='pointer-events-none absolute -right-6 -bottom-6 grid h-20 w-20 grid-cols-5 gap-1 opacity-30'
+                className="pointer-events-none absolute -right-6 -bottom-6 grid h-20 w-20 grid-cols-5 gap-1 opacity-30"
               >
                 {Array.from({ length: 25 }).map((_, i) => (
                   <motion.span
@@ -94,7 +97,7 @@ export default function MissionSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.8 + i * 0.02 }}
                     viewport={{ once: true }}
-                    className='h-1.5 w-1.5 rounded bg-amber-300'
+                    className="h-1.5 w-1.5 rounded bg-amber-300"
                   />
                 ))}
               </motion.div>
@@ -107,7 +110,7 @@ export default function MissionSection() {
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className='-z-20 min-md:z-30 bg-tertiary/80 absolute inset-0'
+        className="-z-20 min-md:z-30 bg-tertiary/80 absolute inset-0"
       />
       <motion.div
         initial={{ opacity: 0, x: 100 }}
@@ -116,14 +119,16 @@ export default function MissionSection() {
         viewport={{ once: true }}
       >
         <Image
-          src={"/icons/tron-legacy-image.svg"}
-          alt='Tron Legacy Image'
+          src={'/icons/tron-legacy-image.svg'}
+          alt="Tron Legacy Image"
           width={400}
           height={800}
           priority={false}
-          className='absolute bottom-0 -right-20 -z-20 min-md:z-10 object-cover'
+          className="absolute bottom-0 -right-20 -z-20 min-md:z-10 object-cover"
         />
       </motion.div>
     </section>
-  );
+  )
 }
+
+export default MissionSectionSSR

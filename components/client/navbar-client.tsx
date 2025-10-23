@@ -14,12 +14,16 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { Icons } from '@/lib/icons'
-import { DesktopNavItem } from '../components/desktop-nav-item'
-import { MobileNavItem } from '../components/mobile-nav-item'
-import { navigationItems } from '../constants/navigation'
-import SvgIcon from './shared/svg-icon'
+import { DesktopNavItem } from '@/components/desktop-nav-item'
+import { MobileNavItem } from '@/components/mobile-nav-item'
+import { navigationItems } from '@/constants/navigation'
+import SvgIcon from '@/components/shared/svg-icon'
 
-export default function EnhancedMobileNav() {
+/**
+ * Client-side navbar component with hide/show on scroll
+ * Handles scroll detection and navigation interactions
+ */
+export function NavbarClient() {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
 
@@ -173,3 +177,5 @@ export default function EnhancedMobileNav() {
     </motion.div>
   )
 }
+
+export default NavbarClient

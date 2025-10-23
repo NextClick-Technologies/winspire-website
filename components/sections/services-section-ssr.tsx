@@ -1,14 +1,11 @@
-'use client'
-
+'use client';
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
-import { Icons, SvgIcon } from '../shared/icons'
+import { Icons, SvgIcon } from '@/components/shared/icons'
 
 type Service = {
   title: string
-  icon?: React.ElementType
   customIcon?: keyof typeof Icons
-  multiline?: string[]
 }
 
 const topRow: Service[] = [
@@ -46,8 +43,6 @@ function ServiceCard({ item, index }: { item: Service; index: number }) {
           >
             {item.customIcon ? (
               <SvgIcon name={Icons[item.customIcon]} size={52} className="p-1" />
-            ) : item.icon ? (
-              <item.icon className="h-6 w-6" aria-hidden="true" />
             ) : null}
           </motion.span>
           <h3 className="text-base font-semibold leading-snug text-slate-900">{item.title}</h3>
@@ -57,7 +52,11 @@ function ServiceCard({ item, index }: { item: Service; index: number }) {
   )
 }
 
-export default function ServicesSection() {
+/**
+ * Services Section - Fully SSR
+ * All content structure is static, animations are client-side Framer Motion
+ */
+export function ServicesSectionSSR() {
   return (
     <section id="services" aria-labelledby="services-heading" className="relative bg-transparent">
       {/* Top copy */}
@@ -209,3 +208,5 @@ export default function ServicesSection() {
     </section>
   )
 }
+
+export default ServicesSectionSSR

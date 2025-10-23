@@ -38,6 +38,7 @@ components/ui
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+bun.lockb
 
 # Generated types
 next-env.d.ts
