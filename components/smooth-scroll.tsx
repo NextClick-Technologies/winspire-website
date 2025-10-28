@@ -1,35 +1,19 @@
 'use client'
-
 import { useEffect } from 'react'
-import { destroySmoothScroll, initSmoothScroll } from '../lib/smooth-scroll'
+import Lenis from 'lenis'
 
 export default function SmoothScroll() {
   useEffect(() => {
-    // Initialize Lenis
-    const lenis = initSmoothScroll()
+    // Only enable on desktop
+    if (window.innerWidth < 1024) return
 
-    if (!lenis) return
-
-    // Listen for the scroll event and update the progress
-    lenis.on('scroll', () => {
-      // You can add custom scroll event handling here if needed
-    })
-
-    // Use requestAnimationFrame to continuously update the scroll
+    const lenis = new Lenis()
     function raf(time: number) {
-      if (lenis) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
+      lenis.raf(time)
+      requestAnimationFrame(raf)
     }
-
     requestAnimationFrame(raf)
-
-    // Cleanup function
-    return () => {
-      destroySmoothScroll()
-    }
+    return () => lenis.destroy()
   }, [])
-
-  return null // This component doesn't render anything
+  return null
 }

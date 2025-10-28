@@ -70,8 +70,9 @@ export default function AboutSection() {
                 alt='Winspire consultant ready to assist providers'
                 width={474}
                 height={600}
-                quality={85}
+                quality={80}
                 sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 474px'
+                style={{ objectFit: 'cover' }}
                 className='rounded-lg sm:rounded-xl object-cover relative z-15 -translate-y-1 sm:-translate-y-2'
               />
             </motion.div>

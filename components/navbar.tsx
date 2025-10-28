@@ -19,6 +19,8 @@ import { MobileNavItem } from '../components/mobile-nav-item'
 import { navigationItems } from '../constants/navigation'
 import SvgIcon from './shared/svg-icon'
 
+const MotionButton = motion(Button)
+
 export default function EnhancedMobileNav() {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -101,19 +103,17 @@ export default function EnhancedMobileNav() {
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <motion.div
+                <MotionButton
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ duration: 0.2 }}
+                  aria-label="menu button"
+                  variant="ghost"
+                  size="icon"
+                  className="bg-blue-900 border border-blue-400/30 hover:bg-blue-800/90 hover:scale-110 transition-all duration-300 ease-out shadow-lg"
                 >
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="bg-blue-900 border border-blue-400/30 hover:bg-blue-800/90 hover:scale-110 transition-all duration-300 ease-out shadow-lg"
-                  >
-                    <Menu className="aspect-square w-5 text-white" />
-                  </Button>
-                </motion.div>
+                  <Menu className="aspect-square w-5 text-white" />
+                </MotionButton>
               </SheetTrigger>
               <SheetContent
                 side="right"
