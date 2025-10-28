@@ -13,6 +13,9 @@ import Script from "next/script";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: 'swap',
+  preload: true,   
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -29,6 +32,9 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://rybbit.exactli.io" />
+        <link rel="preconnect" href="https://umami.nmcyber.com" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <style>{`
 html {
   font-family: ${plusJakartaSans.style.fontFamily};
@@ -36,7 +42,15 @@ html {
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
-        <Script
+       
+      </head>
+      <body className={`${plusJakartaSans.className}`}>
+        <SmoothScroll />
+        <Navbar />
+        {children}
+        <FooterSection />
+        <ScrollToTop />
+         <Script
           async
           defer
           src='https://umami.nmcyber.com/script.js'
@@ -50,13 +64,6 @@ html {
             data-session-replay="true"
             strategy="lazyOnload"
           />
-      </head>
-      <body className={`${plusJakartaSans.className}`}>
-        <SmoothScroll />
-        <Navbar />
-        {children}
-        <FooterSection />
-        <ScrollToTop />
       </body>
       <Analytics />
       <SpeedInsights />

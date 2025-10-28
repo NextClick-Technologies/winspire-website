@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import BackgroundEffects from "../shared/background-effects";
 import DecorativeDots from "../shared/decorative-dots";
 
-export default function Component() {
+export default function Component({ blurDataURL }: { blurDataURL?: string }) {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -69,9 +69,9 @@ export default function Component() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className='text-4xl lg:text-6xl font-bold leading-tight text-slate-900'
             >
-              Empowering <span className='text-primary-gold'>NDIS</span>
+              Empowering <span className='text-primary-gold [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]'>NDIS</span>
               <span className='block'>
-                <span className='text-primary-gold'>Providers</span> Through
+                <span className='text-primary-gold [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]'>Providers</span> Through
               </span>
               <span className='block'>Expert Guidance</span>
             </motion.h1>
@@ -146,15 +146,17 @@ export default function Component() {
             >
               <div className='bg-transparent absolute inset-0 -z-10 rounded-t-full h-full translate-x-5 -translate-y-5 overflow-hidden outline outline-transparent'>
                 <Image
-                  src='/images/hero_image.webp'
-                  alt='Supportive NDIS consultation meeting inside an office'
-                  width={433}
-                  height={650}
-                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 433px, 433px'
-                  quality={85}
-                  priority
-                  className='w-full h-full object-cover rounded-t-full'
-                />
+                src='/images/hero_image.webp'
+                alt='Supportive NDIS consultation meeting inside an office'
+                width={433}
+                height={650}
+                sizes='(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 433px'
+                quality={75}  // Reduce from 85
+                priority
+                placeholder={blurDataURL ? "blur" : "empty"}
+                blurDataURL={blurDataURL}
+                className='w-full h-full object-cover rounded-t-full'
+              />
               </div>
 
               {/* Small Chart Icon */}
