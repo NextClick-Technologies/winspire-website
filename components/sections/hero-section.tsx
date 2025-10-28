@@ -153,6 +153,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
                 sizes='(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 433px'
                 quality={75}  // Reduce from 85
                 priority
+                fetchPriority='high'
                 placeholder={blurDataURL ? "blur" : "empty"}
                 blurDataURL={blurDataURL}
                 className='w-full h-full object-cover rounded-t-full'
