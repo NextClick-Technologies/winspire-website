@@ -100,6 +100,7 @@ export default function Component() {
               >
                 <Button
                   variant='default'
+                  aria-label='Discover More about NDIS consultancy'
                   className='bg-transparent hover:bg-primary hover:text-white text-black outline outline-primary !px-8 py-6 rounded-full text-base cursor-pointer'
                 >
                   <span className=''>Discover More</span>
@@ -140,11 +141,7 @@ export default function Component() {
             />
 
             {/* Main Image Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.02 }}
+            <div
               className='relative max-w-5/6 mx-auto h-full rounded-t-full shadow-2xl p-4 transform z-0 rotate-0 outline-4 outline-[#001B6A]'
             >
               <div className='bg-transparent absolute inset-0 -z-10 rounded-t-full h-full translate-x-5 -translate-y-5 overflow-hidden outline outline-transparent'>
@@ -182,7 +179,7 @@ export default function Component() {
                   className='absolute right-0 bottom-0 translate-x-11 translate-y-11 w-10 h-10 bg-secondary-gold transform rotate-0'
                 />
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>

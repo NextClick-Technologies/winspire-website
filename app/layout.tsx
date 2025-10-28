@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://rybbit.exactli.io" />
         <style>{`
 html {
   font-family: ${plusJakartaSans.style.fontFamily};
@@ -47,7 +48,7 @@ html {
             data-site-id="5"
             data-track-errors="true"
             data-session-replay="true"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
       </head>
       <body className={`${plusJakartaSans.className}`}>
