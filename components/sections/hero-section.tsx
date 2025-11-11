@@ -69,9 +69,9 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
               transition={{ duration: 0.8, delay: 0.3 }}
               className='text-4xl lg:text-6xl font-bold leading-tight text-slate-900'
             >
-              Empowering <span className='inline-block bg-secondary-gold px-2 rounded-sm text-[#001B6A] [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]'>NDIS</span>
+              Empowering <span className='inline-block bg-secondary-gold px-2 rounded-sm text-[#001B6A] '>NDIS</span>
               <span className='block'>
-                <span className='inline-block bg-secondary-gold px-2 rounded-sm text-[#001B6A] [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]'>Providers</span> Through
+                <span className='inline-block bg-secondary-gold px-2 rounded-sm text-[#001B6A] '>Providers</span> Through
               </span>
               <span className='block'>Expert Guidance</span>
             </motion.h1>
