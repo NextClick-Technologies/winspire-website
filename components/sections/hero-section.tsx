@@ -46,7 +46,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
     >
       {/* Hero Section */}
       <section className='relative z-20 px-6 h-[calc(85dvh-1rem)]'>
-        <div className='max-w-7xl h-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-12 items-center z-10'>
+        <div className='max-w-6xl h-full mx-auto grid lg:grid-cols-2 gap-6 lg:gap-12 items-center z-10'>
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
