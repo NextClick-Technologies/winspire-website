@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import BackgroundEffects from "../shared/background-effects";
-import DecorativeDots from "../shared/decorative-dots";
+// import DecorativeDots from "../shared/decorative-dots";
 
 export default function Component({ blurDataURL }: { blurDataURL?: string }) {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
@@ -101,7 +101,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
                 <Button
                   variant='default'
                   aria-label='Discover More about NDIS consultancy'
-                  className='bg-transparent hover:bg-primary hover:text-white text-black outline outline-primary !px-8 py-6 rounded-full text-base cursor-pointer'
+                  className='bg-transparent hover:bg-primary hover:text-white text-black outline outline-primary px-8! py-6 rounded-full text-base cursor-pointer'
                 >
                   <span className=''>Discover More</span>
                   <Plus className='h-4 w-4' />
@@ -109,7 +109,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
               </motion.div>
             </motion.div>
             {/* Additional Decorative Dots */}
-            <DecorativeDots
+            {/* <DecorativeDots
               rows={8}
               columns={4}
               width={64}
@@ -119,7 +119,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
               className='absolute -bottom-1/5 -left-2/5 w-6 aspect-square'
               animationDelay={1}
               keyPrefix='hero-side-dot'
-            />
+            /> */}
           </motion.div>
 
           {/* Right Image */}
@@ -130,7 +130,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
             className='relative h-[50vh] lg:h-full lg:px-12 py-2 lg:py-20'
           >
             {/* Decorative Elements */}
-            <DecorativeDots
+            {/* <DecorativeDots
               rows={8}
               columns={4}
               width={64}
@@ -138,7 +138,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
               className='absolute top-1/8 left-0 w-6 aspect-square'
               animationDelay={0.8}
               keyPrefix='hero-dot'
-            />
+            /> */}
 
             {/* Main Image Container */}
             <div
@@ -203,7 +203,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
           right='0%'
           size='400'
           zIndex={5}
-          className='!opacity-80 translate-x-2/5 -translate-y-2/5'
+          className='opacity-80! translate-x-2/5 -translate-y-2/5'
         />
         {/* Right column grid background effect */}
         <BackgroundEffects
@@ -211,7 +211,7 @@ export default function Component({ blurDataURL }: { blurDataURL?: string }) {
           left='45%'
           size='400'
           zIndex={5}
-          className='!opacity-50'
+          className='opacity-50!'
           gradient='radial-gradient(50% 50% at 50% 50%, rgba(91, 74, 249, 0.5) 0%, rgba(36, 107, 253, 0.5) 0.01%, rgba(255, 255, 255, 0) 100%)'
         />
       </motion.div>
