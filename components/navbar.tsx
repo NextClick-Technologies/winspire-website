@@ -90,7 +90,7 @@ export default function EnhancedMobileNav() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             whileHover={{ scale: 1.02, y: -2 }}
-            className="hidden lg:flex items-center gap-2 bg-blue-950/85 backdrop-blur-md border-none outline-none text-white px-3 py-4 rounded-none text-xs shadow-lg hover:bg-accent hover:text-primary transition-all duration-300 ease-out cursor-pointer"
+            className="hidden lg:flex items-center -translate-x-8 gap-2 bg-blue-950/85 backdrop-blur-md border-none outline-none text-white px-3 py-4 rounded-none text-xs shadow-lg hover:bg-accent hover:text-primary transition-all duration-300 ease-out cursor-pointer"
           >
             <Mail className="h-4 w-4 text-white" />
             <div className="leading-tight">
